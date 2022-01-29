@@ -18,7 +18,7 @@ namespace topdownGame.Controller {
         private BoxCollider2D m_boxCollider;
         private RaycastOrigins m_rayOrigins;
 
-        private const float m_skinWidth = 0.015f;
+        private const float m_skinWidth = 0.15f;
         private float m_horizontalRaySpacing;
         private float m_verticalRaySpacing;
         [SerializeField] private int m_horizontalRayCount = 4;
@@ -50,7 +50,6 @@ namespace topdownGame.Controller {
                 if (hit) {
                     velocity.y = (hit.distance - m_skinWidth) * directionY;
                     rayLenght = hit.distance;
-                    Debug.Log("bateu vertical");
                 }
                 
                 Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLenght, Color.red);
@@ -67,9 +66,8 @@ namespace topdownGame.Controller {
                 var hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLenght, collisionMask);
 
                 if (hit) {
-                    velocity.y = (hit.distance - m_skinWidth) * directionX;
+                    velocity.x = (hit.distance - m_skinWidth) * directionX;
                     rayLenght = hit.distance;
-                    Debug.Log("bateu horizontal");
                 }
                 
                 Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLenght, Color.red);

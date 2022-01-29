@@ -16,7 +16,7 @@ namespace topdownGame.Player {
         }
 
        
-        private void Update() {
+        private void FixedUpdate() {
             m_controller.Move(m_velocity);
         }
     }
