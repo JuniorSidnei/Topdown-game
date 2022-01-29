@@ -8,6 +8,8 @@ namespace topdownGame.Controller {
     [RequireComponent(typeof(BoxCollider2D))]
     public class Controller2D : MonoBehaviour {
 
+        public LayerMask collisionMask;
+        
         struct RaycastOrigins {
             public Vector2 topLeft, topRight;
             public Vector2 bottomLeft, bottomRight;
@@ -24,16 +26,56 @@ namespace topdownGame.Controller {
 
         private void Awake() {
             m_boxCollider = GetComponent<BoxCollider2D>();
+            CalculateRaySpacing();
         }
 
-        private void Update() {
+        
+        public void Move(Vector3 velocity) {
             UpdateRaycastOrigins();
-            CalculateRaySpacing();
-
+            HorizontalCollisions(ref velocity);
+            VerticalCollisions(ref velocity);
+            
+            transform.Translate(velocity);    
+        }
+        
+        private void VerticalCollisions(ref Vector3 velocity) {
+            var directionY = Mathf.Sign(velocity.y);
+            var rayLenght = Mathf.Abs(velocity.y) + m_skinWidth;
+            
             for (var i = 0; i < m_verticalRayCount; i++) {
-                Debug.DrawRay(m_rayOrigins.bottomLeft + Vector2.right * m_verticalRaySpacing * i, Vector2.up * -2, Color.red);
+                var rayOrigin = (directionY == -1) ? m_rayOrigins.bottomLeft : m_rayOrigins.topLeft;
+                rayOrigin += Vector2.right * (m_horizontalRaySpacing * i + velocity.x);
+                var hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLenght, collisionMask);
+
+                if (hit) {
+                    velocity.y = (hit.distance - m_skinWidth) * directionY;
+                    rayLenght = hit.distance;
+                    Debug.Log("bateu vertical");
+                }
+                
+                Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLenght, Color.red);
             }
         }
+
+        private void HorizontalCollisions(ref Vector3 velocity) {
+            var directionX = Mathf.Sign(velocity.x);
+            var rayLenght = Mathf.Abs(velocity.x) + m_skinWidth;
+            
+            for (var i = 0; i < m_horizontalRayCount; i++) {
+                var rayOrigin = (directionX == 1) ? m_rayOrigins.bottomLeft : m_rayOrigins.bottomRight;
+                rayOrigin += Vector2.up * (m_verticalRaySpacing * i);
+                var hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLenght, collisionMask);
+
+                if (hit) {
+                    velocity.y = (hit.distance - m_skinWidth) * directionX;
+                    rayLenght = hit.distance;
+                    Debug.Log("bateu horizontal");
+                }
+                
+                Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLenght, Color.red);
+            }
+        }
+        
         
         private void UpdateRaycastOrigins() {
             Bounds bounds = m_boxCollider.bounds;
