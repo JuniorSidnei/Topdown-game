@@ -9,10 +9,20 @@ namespace topdownGame.Controller {
     public class Controller2D : MonoBehaviour {
 
         public LayerMask collisionMask;
+        public CollisionsInfo collisionsInfo;
         
         struct RaycastOrigins {
-            public Vector2 topLeft, topRight;
-            public Vector2 bottomLeft, bottomRight;
+            public Vector2 TopLeft, TopRight;
+            public Vector2 BottomLeft, BottomRight;
+        }
+
+        public struct CollisionsInfo {
+            public bool Above, Bellow, Left, Right;
+            
+            public void ResetCollisions() {
+                Above = Bellow = false;
+                Left = Right = false;
+            }
         }
         
         private BoxCollider2D m_boxCollider;
@@ -32,6 +42,7 @@ namespace topdownGame.Controller {
         
         public void Move(Vector3 velocity) {
             UpdateRaycastOrigins();
+            collisionsInfo.ResetCollisions();
             HorizontalCollisions(ref velocity);
             VerticalCollisions(ref velocity);
             
@@ -43,13 +54,16 @@ namespace topdownGame.Controller {
             var rayLenght = Mathf.Abs(velocity.y) + m_skinWidth;
             
             for (var i = 0; i < m_verticalRayCount; i++) {
-                var rayOrigin = (directionY == -1) ? m_rayOrigins.bottomLeft : m_rayOrigins.topLeft;
-                rayOrigin += Vector2.right * (m_horizontalRaySpacing * i + velocity.x);
+                var rayOrigin = (directionY == -1) ? m_rayOrigins.BottomLeft : m_rayOrigins.TopLeft;
+                rayOrigin += Vector2.right * (m_verticalRaySpacing * i + velocity.x);
                 var hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLenght, collisionMask);
 
                 if (hit) {
                     velocity.y = (hit.distance - m_skinWidth) * directionY;
                     rayLenght = hit.distance;
+
+                    collisionsInfo.Above = directionY == -1;
+                    collisionsInfo.Bellow = directionY == 1;
                 }
                 
                 Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLenght, Color.red);
@@ -61,13 +75,17 @@ namespace topdownGame.Controller {
             var rayLenght = Mathf.Abs(velocity.x) + m_skinWidth;
             
             for (var i = 0; i < m_horizontalRayCount; i++) {
-                var rayOrigin = (directionX == 1) ? m_rayOrigins.bottomLeft : m_rayOrigins.bottomRight;
-                rayOrigin += Vector2.up * (m_verticalRaySpacing * i);
+                var rayOrigin = (directionX == -1) ? m_rayOrigins.BottomLeft : m_rayOrigins.BottomRight;
+                rayOrigin += Vector2.up * (m_horizontalRaySpacing * i);
                 var hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLenght, collisionMask);
 
                 if (hit) {
                     velocity.x = (hit.distance - m_skinWidth) * directionX;
                     rayLenght = hit.distance;
+                    
+                    collisionsInfo.Left = directionX == -1;
+                    collisionsInfo.Right = directionX == 1;
+                    
                 }
                 
                 Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLenght, Color.red);
@@ -79,10 +97,10 @@ namespace topdownGame.Controller {
             Bounds bounds = m_boxCollider.bounds;
             bounds.Expand(m_skinWidth * -2);
             
-            m_rayOrigins.topLeft = new Vector2(bounds.min.x, bounds.max.y);
-            m_rayOrigins.topRight = new Vector2(bounds.max.x, bounds.max.y);
-            m_rayOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
-            m_rayOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
+            m_rayOrigins.TopLeft = new Vector2(bounds.min.x, bounds.max.y);
+            m_rayOrigins.TopRight = new Vector2(bounds.max.x, bounds.max.y);
+            m_rayOrigins.BottomRight = new Vector2(bounds.max.x, bounds.min.y);
+            m_rayOrigins.BottomLeft = new Vector2(bounds.min.x, bounds.min.y);
         }
 
         private void CalculateRaySpacing() {
