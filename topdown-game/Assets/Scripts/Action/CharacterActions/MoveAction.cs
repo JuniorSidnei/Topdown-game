@@ -1,40 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using topdownGame.Actions;
+using topdownGame.Controller;
 using topdownGame.Events;
 using topdownGame.Managers;
-using topdownGame.Player;
 using topdownGame.Utils;
 using UnityEngine;
 
 namespace topdownGame.Actions {
     
-    [System.Serializable]
-    public class MoveAction : Action  {
+    [RequireComponent(typeof(Controller2D))]
+    public class MoveAction : MonoBehaviour  {
         
-        public float speed;
+        [SerializeField] private float m_speed;
+
+        private Character m_character;
+        
         private Vector2 m_inputDirection;
-        private Character m_char;
         
-        public override void OnConfigure() {
-            m_char = Character;
-        }
-
-        public override void OnActivate() {
-            m_char.CharacterDispatcher.Subscribe<OnMove>(OnMove);
-            m_char.CharacterDispatcher.Subscribe<OnCharacterFixedUpdate>(OnCharacterFixedUpdate);
-        }
-
-        public override void OnDeactivate() {
-            m_char.CharacterDispatcher.Unsubscribe<OnMove>(OnMove);
+        private void Awake() {
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnMove>(OnMove);
+            m_character = GetComponent<Character>();
         }
 
         private void OnMove(OnMove onMove) {
             m_inputDirection = onMove.InputDirection;
         }
 
-        private void OnCharacterFixedUpdate(OnCharacterFixedUpdate ev) {
-            m_char.Velocity = m_inputDirection * speed;
+        private void FixedUpdate() {
+            m_character.Velocity += new Vector3(m_inputDirection.x, m_inputDirection.y) * m_speed;
         }
     }
 }
