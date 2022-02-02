@@ -20,19 +20,11 @@ namespace topdownGame.Actions {
         }
 
         private void OnDash(OnDash ev) {
-            Vector3 to;
-            var directionY = Mathf.Sign(m_character.Velocity.y);
-            var directionX = Mathf.Sign(m_character.Velocity.x);
-            
-            if (m_character.Velocity.y == 0) {
-                to = new Vector3(m_dashForce * directionX, 0);
-            } else if (m_character.Velocity.x == 0) {
-                to = new Vector3(0, m_dashForce * directionY);
-            }
-            else {
-                to = new Vector3(m_dashForce * directionX, m_dashForce * directionY);
-            }
+            var to = Vector3.zero;
+            var directionY = m_character.Velocity.y > 0 ? 1 : m_character.Velocity.y < 0 ? -1 : 0;
+            var directionX = m_character.Velocity.x > 0 ? 1 : m_character.Velocity.x < 0 ? -1 : 0;
 
+            to = new Vector3(m_dashForce * directionX, m_dashForce * directionY);
             to += m_character.Velocity;
             DOTween.To(() => m_character.Velocity, velocity => m_character.Velocity = to, to, .1f).SetEase(Ease.Linear).OnComplete(() => {
                 
