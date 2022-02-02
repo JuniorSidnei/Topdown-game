@@ -18,5 +18,13 @@ namespace topdownGame.Events {
     public class OnDash {
         public OnDash() { }
     }
+
+    public class OnStaminaUpdate {
+        public OnStaminaUpdate(int amount) {
+            Amount = amount;
+        }
+
+        public int Amount;
+    }
 }
 
