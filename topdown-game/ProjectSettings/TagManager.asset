@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - PlayerCharacter
-  - Obstalce
+  - Player
+  - Walls
   - 
   - 
   - 
@@ -25,9 +25,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Layer 1
+  - Layer 2
+  - Layer 3
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GrassGround
+    uniqueID: 2425651459
+    locked: 0
+  - name: RockGround
+    uniqueID: 4250941897
+    locked: 0
+  - name: Walls
+    uniqueID: 4189426099
+    locked: 0
+  - name: Player
+    uniqueID: 2917164945
     locked: 0
