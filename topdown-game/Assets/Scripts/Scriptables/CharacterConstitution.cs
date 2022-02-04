@@ -8,25 +8,20 @@ namespace topdownGame.Characters.Status {
     public class CharacterConstitution : ScriptableObject, ISerializationCallbackReceiver {
 
         public float MaxHealth;
-        public float CurrentHealth;
         public float MaxStamina;
-        public float CurrentStamina;
 
-        private float m_currentHealth;
-        private float m_currentStamina;
-        
         //alteram valor durante o jogo
         private float m_currentHealthInGame; 
         private float m_currentStaminaInGame; 
             
         public void OnBeforeSerialize() {
-            CurrentHealth = MaxHealth;
-            CurrentStamina = MaxStamina;
+            m_currentHealthInGame = MaxHealth;
+            m_currentStaminaInGame = MaxStamina;
         }
 
         public void OnAfterDeserialize() {
-            CurrentHealth = MaxHealth;
-            CurrentStamina = MaxStamina;
+            m_currentHealthInGame = MaxHealth;
+            m_currentStaminaInGame = MaxStamina;
         }
 
         public float MaxHealthInGame {
@@ -35,8 +30,8 @@ namespace topdownGame.Characters.Status {
         }
         
         public float CurrentHealthInGame {
-            get => CurrentHealth;
-            set => CurrentHealth = value;
+            get => m_currentHealthInGame;
+            set => m_currentHealthInGame = value;
         }
         
         public float MaxStaminaInGame {
@@ -45,8 +40,8 @@ namespace topdownGame.Characters.Status {
         }
         
         public float CurrentStaminaInGame {
-            get => CurrentStamina;
-            set => CurrentStamina = value;
+            get => m_currentStaminaInGame;
+            set => m_currentStaminaInGame = value;
         }
     }
 }

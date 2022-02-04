@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: CharacterConstitution
   m_EditorClassIdentifier: 
   MaxHealth: 2000
-  CurrentHealth: 2000
   MaxStamina: 500
-  CurrentStamina: 500

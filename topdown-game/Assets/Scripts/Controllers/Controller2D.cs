@@ -5,40 +5,7 @@ using UnityEngine;
 
 namespace topdownGame.Controller { 
     
-    [RequireComponent(typeof(BoxCollider2D))]
-    public class Controller2D : MonoBehaviour {
-
-        public LayerMask collisionMask;
-        public CollisionsInfo collisionsInfo;
-        
-        struct RaycastOrigins {
-            public Vector2 TopLeft, TopRight;
-            public Vector2 BottomLeft, BottomRight;
-        }
-
-        public struct CollisionsInfo {
-            public bool Above, Bellow, Left, Right;
-            
-            public void ResetCollisions() {
-                Above = Bellow = false;
-                Left = Right = false;
-            }
-        }
-        
-        private BoxCollider2D m_boxCollider;
-        private RaycastOrigins m_rayOrigins;
-
-        private const float m_skinWidth = 0.15f;
-        private float m_horizontalRaySpacing;
-        private float m_verticalRaySpacing;
-        [SerializeField] private int m_horizontalRayCount = 4;
-        [SerializeField] private int m_verticalRayCount = 4;
-
-        private void Awake() {
-            m_boxCollider = GetComponent<BoxCollider2D>();
-            CalculateRaySpacing();
-        }
-
+    public class Controller2D : RaycastController2D {
         
         public void Move(Vector3 velocity) {
             UpdateRaycastOrigins();
@@ -90,29 +57,6 @@ namespace topdownGame.Controller {
                 
                 Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLenght, Color.red);
             }
-        }
-        
-        
-        private void UpdateRaycastOrigins() {
-            Bounds bounds = m_boxCollider.bounds;
-            bounds.Expand(m_skinWidth * -2);
-            
-            m_rayOrigins.TopLeft = new Vector2(bounds.min.x, bounds.max.y);
-            m_rayOrigins.TopRight = new Vector2(bounds.max.x, bounds.max.y);
-            m_rayOrigins.BottomRight = new Vector2(bounds.max.x, bounds.min.y);
-            m_rayOrigins.BottomLeft = new Vector2(bounds.min.x, bounds.min.y);
-        }
-
-        private void CalculateRaySpacing() {
-            Bounds bounds = m_boxCollider.bounds;
-            bounds.Expand(m_skinWidth * -2);
-
-            m_horizontalRayCount = Mathf.Clamp(m_horizontalRayCount, 2, int.MaxValue);
-            m_verticalRayCount = Mathf.Clamp(m_verticalRayCount, 2, int.MaxValue);
-            
-            m_horizontalRaySpacing = bounds.size.y / (m_horizontalRayCount - 1);
-            m_verticalRaySpacing = bounds.size.x / (m_verticalRayCount - 1);
-            
         }
     }
 }
