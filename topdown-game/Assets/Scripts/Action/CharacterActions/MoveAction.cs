@@ -33,12 +33,8 @@ namespace topdownGame.Actions {
 
         private void FixedUpdate() {
             var targetVelocity = m_inputDirection * m_speed;
-            //var velocity = m_character.Velocity;
-            //velocity.x += Mathf.SmoothDamp(m_character.Velocity.x, targetVelocity.x, ref m_velocitySmoothing, m_acceleration);
-            //velocity.y += Mathf.SmoothDamp(m_character.Velocity.y, targetVelocity.y, ref m_velocitySmoothing, m_acceleration);
             m_character.Velocity = Vector3.SmoothDamp(m_character.Velocity, targetVelocity, ref m_velocitySmoothing,
                 m_acceleration);
-            //m_character.Velocity += new Vector3(m_inputDirection.x, m_inputDirection.y) * m_speed;
         }
     }
 }

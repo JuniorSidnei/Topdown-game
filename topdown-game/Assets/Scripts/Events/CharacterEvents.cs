@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 namespace topdownGame.Events {
     
-    public class OnCharacterFixedUpdate { }
-    
     public class OnMove {
         public OnMove(Vector2 inputDirection) {
             InputDirection = inputDirection;
@@ -25,6 +23,10 @@ namespace topdownGame.Events {
         }
 
         public int Amount;
+    }
+
+    public class OnFire {
+        public OnFire() { }
     }
 }
 

@@ -45,6 +45,7 @@ namespace topdownGame.Actions {
             var directionX = m_character.Velocity.x > 0 ? 1 : m_character.Velocity.x < 0 ? -1 : 0;
 
             to = new Vector3(m_dashForce * directionX, m_dashForce * directionY);
+            Debug.Log("to: " + to);
             to += m_character.Velocity;
             DOTween.To(() => m_character.Velocity, velocity => m_character.Velocity = to, to, .1f).SetEase(Ease.Linear).OnComplete(() => {
                 m_dashCooldown = m_dashCooldownTimer;

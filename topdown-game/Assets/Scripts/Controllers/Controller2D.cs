@@ -25,6 +25,8 @@ namespace topdownGame.Controller {
                 rayOrigin += Vector2.right * (m_verticalRaySpacing * i + velocity.x);
                 var hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLenght, collisionMask);
 
+                Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLenght, Color.red);
+                
                 if (hit) {
                     velocity.y = (hit.distance - m_skinWidth) * directionY;
                     rayLenght = hit.distance;
@@ -33,7 +35,7 @@ namespace topdownGame.Controller {
                     collisionsInfo.Bellow = directionY == 1;
                 }
                 
-                Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLenght, Color.red);
+               
             }
         }
 
@@ -46,6 +48,8 @@ namespace topdownGame.Controller {
                 rayOrigin += Vector2.up * (m_horizontalRaySpacing * i);
                 var hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLenght, collisionMask);
 
+                Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLenght, Color.red);
+                
                 if (hit) {
                     velocity.x = (hit.distance - m_skinWidth) * directionX;
                     rayLenght = hit.distance;
@@ -55,7 +59,7 @@ namespace topdownGame.Controller {
                     
                 }
                 
-                Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLenght, Color.red);
+                
             }
         }
     }

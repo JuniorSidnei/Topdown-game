@@ -14,8 +14,8 @@ namespace topdownGame.Managers {
 
             m_playerController.Player.Move.performed += MoveAction;
             m_playerController.Player.Move.canceled += MoveAction;
-
             m_playerController.Player.Dash.performed += DashAction;
+            m_playerController.Player.Fire.performed += FireAction;
         }
         
         private void OnDisable() {
@@ -23,7 +23,6 @@ namespace topdownGame.Managers {
             
             m_playerController.Player.Move.performed -= MoveAction;
             m_playerController.Player.Move.canceled -= MoveAction;
-            
             m_playerController.Player.Dash.performed -= DashAction;
         }
 
@@ -37,6 +36,10 @@ namespace topdownGame.Managers {
 
         private void DashAction(InputAction.CallbackContext ctx) {
             GameManager.Instance.GlobalDispatcher.Emit(new OnDash());
+        }
+
+        private void FireAction(InputAction.CallbackContext ctx) {
+            GameManager.Instance.GlobalDispatcher.Emit(new OnFire());
         }
     }
 }

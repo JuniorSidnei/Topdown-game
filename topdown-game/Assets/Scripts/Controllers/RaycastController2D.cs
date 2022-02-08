@@ -34,6 +34,10 @@ namespace topdownGame.Controller  {
                 Above = Bellow = false;
                 Left = Right = false;
             }
+
+            public bool HasCollision() {
+                return Above || Bellow || Right || Left;
+            }
         }
         
         private void Awake() {
