@@ -18,11 +18,13 @@ namespace topdownGame.Actions {
         private float m_dashCooldown;
         
         private Character m_character;
+        private Vector2 m_inputDirection;
         
         private void Start() {
             m_character = GetComponent<Character>();
             
             GameManager.Instance.GlobalDispatcher.Subscribe<OnDash>(OnDash);
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnMove>(OnMove);
         }
 
         private void Update() {
@@ -35,17 +37,21 @@ namespace topdownGame.Actions {
             }
         }
 
+        private void OnMove(OnMove ev) {
+            m_inputDirection = ev.InputDirection;
+        }
+        
         private void OnDash(OnDash ev) {
 
             if (m_dashCooldown > 0 || m_characterConstitution.CurrentStaminaInGame <= m_dashStaminaGas) return;
             
             GameManager.Instance.GlobalDispatcher.Emit(new OnStaminaUpdate(m_dashStaminaGas));
             var to = Vector3.zero;
-            var directionY = m_character.Velocity.y > 0 ? 1 : m_character.Velocity.y < 0 ? -1 : 0;
-            var directionX = m_character.Velocity.x > 0 ? 1 : m_character.Velocity.x < 0 ? -1 : 0;
-
+            
+            var directionX = m_inputDirection.x;
+            var directionY = m_inputDirection.y;
+            
             to = new Vector3(m_dashForce * directionX, m_dashForce * directionY);
-            Debug.Log("to: " + to);
             to += m_character.Velocity;
             DOTween.To(() => m_character.Velocity, velocity => m_character.Velocity = to, to, .1f).SetEase(Ease.Linear).OnComplete(() => {
                 m_dashCooldown = m_dashCooldownTimer;
