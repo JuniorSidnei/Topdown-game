@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using topdownGame.Controller;
+using topdownGame.Utils;
 using UnityEngine;
 
 namespace topdownGame.Actions {
+    
     [RequireComponent(typeof(Controller2D))]
     public class Character : MonoBehaviour {
 
         [SerializeField] private float m_drag;
         
         private Controller2D m_controller;
+        private Collision2DProxy m_collisionProxy;
 
         private Vector3 m_velocity;
         private Vector3 m_positionDelta;
@@ -18,9 +21,13 @@ namespace topdownGame.Actions {
             get => m_velocity;
             set => m_velocity = value;
         }
+
+        public Collision2DProxy CollisionProxy => m_collisionProxy;
         
-        private void Start() {
+        
+        private void Awake() {
             m_controller = GetComponent<Controller2D>();
+            m_collisionProxy = GetComponent<Collision2DProxy>();
         }
 
 

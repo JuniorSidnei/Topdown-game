@@ -29,10 +29,12 @@ namespace topdownGame.Controller  {
 
         public struct CollisionsInfo {
             public bool Above, Bellow, Left, Right;
+            public GameObject ObjectCollider;
             
             public void ResetCollisions() {
                 Above = Bellow = false;
                 Left = Right = false;
+                ObjectCollider = null;
             }
 
             public bool HasCollision() {

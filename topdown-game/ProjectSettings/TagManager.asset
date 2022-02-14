@@ -19,14 +19,14 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - PistolBullet
   - 
   - 
   - 
   - 
   - 
   - PostProcessing
-  - 
+  - dummy
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2917164945
+    locked: 0
+  - name: EnemiesUi
+    uniqueID: 395344875
     locked: 0

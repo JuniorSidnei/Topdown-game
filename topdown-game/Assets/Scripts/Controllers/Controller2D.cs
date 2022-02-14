@@ -30,12 +30,10 @@ namespace topdownGame.Controller {
                 if (hit) {
                     velocity.y = (hit.distance - m_skinWidth) * directionY;
                     rayLenght = hit.distance;
-
+                    collisionsInfo.ObjectCollider = hit.collider.gameObject;
                     collisionsInfo.Above = directionY == -1;
                     collisionsInfo.Bellow = directionY == 1;
                 }
-                
-               
             }
         }
 
@@ -53,7 +51,7 @@ namespace topdownGame.Controller {
                 if (hit) {
                     velocity.x = (hit.distance - m_skinWidth) * directionX;
                     rayLenght = hit.distance;
-                    
+                    collisionsInfo.ObjectCollider = hit.collider.gameObject;
                     collisionsInfo.Left = directionX == -1;
                     collisionsInfo.Right = directionX == 1;
                     

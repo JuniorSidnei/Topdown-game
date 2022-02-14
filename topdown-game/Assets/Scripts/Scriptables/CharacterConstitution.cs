@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace topdownGame.Characters.Status {
 
-    [CreateAssetMenu(menuName = "TopDown/CharacterStatus")]
+    [CreateAssetMenu(menuName = "TopDown/Character/Status")]
     public class CharacterConstitution : ScriptableObject, ISerializationCallbackReceiver {
 
         public float MaxHealth;
