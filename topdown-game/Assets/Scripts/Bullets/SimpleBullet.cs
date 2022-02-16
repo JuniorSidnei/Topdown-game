@@ -40,7 +40,7 @@ namespace topdownGame.Bullets
                 return;
             }
 
-            var velocity = Vector2.left * Speed;
+            var velocity = transform.right * Speed;
             m_controller.Move(velocity * Time.deltaTime);
         }
     }

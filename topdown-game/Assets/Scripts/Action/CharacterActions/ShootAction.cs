@@ -2,31 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using topdownGame.Events;
 using topdownGame.Managers;
+using topdownGame.Weapons;
+using topdownGame.Weapons.Pistol;
 using UnityEngine;
 
 namespace topdownGame.Actions
 {
     public class ShootAction : MonoBehaviour
     {
-        public GameObject BulletOj;
-        public Transform AimTransform;
-        public Transform SpawnTransform;
+        // public GameObject BulletOj;
+        // public Transform AimTransform;
+        // public Transform SpawnTransform;
 
-        public float FireCooldown;
+        public Transform WeaponHolder;
         private float m_fireCooldown;
+        private Weapon m_currentWeapon;
         
         private void Start()
         {
             GameManager.Instance.GlobalDispatcher.Subscribe<OnFire>(OnFire);
-            m_fireCooldown = FireCooldown;
+            m_currentWeapon = WeaponHolder.GetComponentInChildren<Weapon>();
+            m_fireCooldown = m_currentWeapon.WeaponsData.FireCooldown;
         }
 
         private void OnFire(OnFire ev) {
-            if (m_fireCooldown > 0) return;
-
-            var tempBullet = Instantiate(BulletOj, SpawnTransform.position, Quaternion.identity);
-            tempBullet.transform.right = AimTransform.right;
-            m_fireCooldown = FireCooldown;
+            if (m_fireCooldown > 0 || m_currentWeapon == null) return;
+            
+            m_currentWeapon.Shoot();
+            m_fireCooldown = m_currentWeapon.WeaponsData.FireCooldown;
         }
         
         private void Update()
