@@ -29,6 +29,8 @@ namespace topdownGame.Actions
         }
 
         private void OnPickedWeapon(OnPickedWeapon ev) {
+            if(m_currentWeapon) DestroyImmediate(m_currentWeapon.gameObject);
+            
             m_currentWeapon = ev.Weapon.GetComponent<Weapon>();
         }
         

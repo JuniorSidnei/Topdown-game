@@ -21,9 +21,6 @@ namespace topdownGame.Actions.Pickable {
         }
 
         private void OnPickedWeapon(OnPickedWeapon ev) {
-            if (m_currentWeapon) {
-                DestroyImmediate(m_currentWeapon);
-            }
 
             var newWeapon = Instantiate(ev.Weapon);
             m_currentWeapon = newWeapon;
