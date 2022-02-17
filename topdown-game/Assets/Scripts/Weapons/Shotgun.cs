@@ -2,19 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace topdownGame.Weapons.Shotgum
-{
+namespace topdownGame.Weapons.Shotgum {
 
-
-    public class Shotgun : Weapon
-    {
-        public Transform AimTransform;
+    public class Shotgun : Weapon {
         public List<Transform> SpawnsTransforns;
         
-        public override void Shoot()
-        {
+        public override void Shoot() {
             foreach (var spawn in SpawnsTransforns) {
-                Debug.Log("tiro de 12, spawn: " + spawn.name);
+                var tempBullet = Instantiate(WeaponsData.BulletObj, spawn.position, Quaternion.identity);
+                tempBullet.transform.right = spawn.right;
             }
 
         }

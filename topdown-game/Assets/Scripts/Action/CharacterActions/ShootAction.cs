@@ -21,10 +21,17 @@ namespace topdownGame.Actions
         private void Start()
         {
             GameManager.Instance.GlobalDispatcher.Subscribe<OnFire>(OnFire);
+            GameManager.Instance.GlobalDispatcher.Subscribe<OnPickedWeapon>(OnPickedWeapon);
             m_currentWeapon = WeaponHolder.GetComponentInChildren<Weapon>();
+            
+            if (!m_currentWeapon) return;
             m_fireCooldown = m_currentWeapon.WeaponsData.FireCooldown;
         }
 
+        private void OnPickedWeapon(OnPickedWeapon ev) {
+            m_currentWeapon = ev.Weapon.GetComponent<Weapon>();
+        }
+        
         private void OnFire(OnFire ev) {
             if (m_fireCooldown > 0 || m_currentWeapon == null) return;
             

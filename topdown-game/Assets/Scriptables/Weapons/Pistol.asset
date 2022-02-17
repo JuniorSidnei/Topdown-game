@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5e48fb6c8856143b200410cdc2afbc, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
+  WeaponType: 1
+  WeaponPrefab: {fileID: 4013000606229793289, guid: ca8dbefd9e510214cad241241d732342,
+    type: 3}
   BulletObj: {fileID: 4076829094338737092, guid: 0bfccaa694629574e85185b559b19a99,
     type: 3}
   Damage: 100

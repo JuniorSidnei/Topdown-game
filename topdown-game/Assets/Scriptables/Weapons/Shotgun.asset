@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5e48fb6c8856143b200410cdc2afbc, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  BulletObjs:
-  - {fileID: 4076829094338737092, guid: 0bfccaa694629574e85185b559b19a99, type: 3}
-  Damage: 150
-  FireCooldown: 0.5
+  WeaponType: 2
+  WeaponPrefab: {fileID: 4013000606229793289, guid: 55645423590a05b4898f9246ab523d18,
+    type: 3}
+  BulletObj: {fileID: 5766443822579619002, guid: 51a347d8902cbb546a4d272357b7146c,
+    type: 3}
+  Damage: 300
+  FireCooldown: 1

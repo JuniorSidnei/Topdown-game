@@ -61,5 +61,17 @@ namespace topdownGame.Events {
         public int Amount;
         public Character Character;
     }
+
+    public class OnPickUpItem {
+        public OnPickUpItem() { }
+    }
+    
+    public class OnPickedWeapon {
+        public OnPickedWeapon(GameObject weapon) {
+            Weapon = weapon;
+        }
+
+        public GameObject Weapon;
+    }
 }
 

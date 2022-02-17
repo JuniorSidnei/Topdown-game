@@ -16,6 +16,7 @@ namespace topdownGame.Managers {
             m_playerController.Player.Move.canceled += MoveAction;
             m_playerController.Player.Dash.performed += DashAction;
             m_playerController.Player.Fire.performed += FireAction;
+            m_playerController.Player.PickUpItem.performed += PickUpItem;
         }
         
         private void OnDisable() {
@@ -24,6 +25,8 @@ namespace topdownGame.Managers {
             m_playerController.Player.Move.performed -= MoveAction;
             m_playerController.Player.Move.canceled -= MoveAction;
             m_playerController.Player.Dash.performed -= DashAction;
+            m_playerController.Player.Fire.performed -= FireAction;
+            m_playerController.Player.PickUpItem.performed -= PickUpItem;
         }
 
         private void Awake() {
@@ -40,6 +43,10 @@ namespace topdownGame.Managers {
 
         private void FireAction(InputAction.CallbackContext ctx) {
             GameManager.Instance.GlobalDispatcher.Emit(new OnFire());
+        }
+
+        private void PickUpItem(InputAction.CallbackContext ctx) {
+            GameManager.Instance.GlobalDispatcher.Emit(new OnPickUpItem());
         }
     }
 }
