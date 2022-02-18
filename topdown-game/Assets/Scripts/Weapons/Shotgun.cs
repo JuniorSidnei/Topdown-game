@@ -12,7 +12,6 @@ namespace topdownGame.Weapons.Shotgum {
                 var tempBullet = Instantiate(WeaponsData.BulletObj, spawn.position, Quaternion.identity);
                 tempBullet.transform.right = spawn.right;
             }
-
         }
 
         public override void Especial()
