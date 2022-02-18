@@ -36,6 +36,7 @@ namespace topdownGame.Actions {
 
         public void Show(bool enable) {
             AimRend.gameObject.SetActive(enable);
+            if (TargetRend.flipY) TargetRend.flipY = false;
             enabled = enable;
         }
         

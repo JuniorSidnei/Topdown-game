@@ -38,6 +38,7 @@ namespace topdownGame.Actions.Pickable {
             var weaponTransform = m_currentWeapon.transform;
             weaponTransform.SetParent(null);
             weaponTransform.localPosition = transform.position;
+            weaponTransform.localRotation = Quaternion.Euler(0,0,0);
             CurrentWeaponType = WeaponsData.WeaponTypeData.None;
             var aim = m_currentWeapon.GetComponent<AimAction>();
             aim.Show(false);

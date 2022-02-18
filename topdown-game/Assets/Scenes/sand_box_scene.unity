@@ -6608,6 +6608,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 4013000606229793302, guid: 55645423590a05b4898f9246ab523d18,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55645423590a05b4898f9246ab523d18, type: 3}
 --- !u!1 &1178266089 stripped
