@@ -12,29 +12,51 @@ namespace topdownGame.Actions {
         public Transform WeaponHolder;
         private float m_fireCooldown;
         public Weapon m_currentWeapon;
+
+        private bool m_isFiring;
+        private bool m_isReloading;
+        private float m_reloadTime;
         
         private void Start() {
             GameManager.Instance.GlobalDispatcher.Subscribe<OnFire>(OnFire);
-            m_currentWeapon = WeaponHolder.GetComponentInChildren<Weapon>();
-            
-            if (!m_currentWeapon) return;
-            m_fireCooldown = m_currentWeapon.WeaponsData.FireCooldown;
         }
 
         private void OnFire(OnFire ev) {
-            if (m_fireCooldown > 0 || m_currentWeapon == null) return;
-            
-            m_currentWeapon.Shoot();
-            m_fireCooldown = m_currentWeapon.WeaponsData.FireCooldown;
+            m_isFiring = ev.Firing;
         }
         
         private void Update() {
             m_fireCooldown -= Time.deltaTime;
             if (m_fireCooldown <= 0) m_fireCooldown = 0;
+            Shoot();
+
+            if (!m_isReloading) return;
+            
+            m_reloadTime -= Time.deltaTime;
+            if (!(m_reloadTime <= 0)) return;
+            
+            m_reloadTime = m_currentWeapon.WeaponsData.TimeToReload;
+            m_isReloading = false;
+            m_currentWeapon.Reload();
         }
         
         public void SetPickedWeapon(Weapon weapon) {
             m_currentWeapon = weapon;
+            m_fireCooldown = m_currentWeapon.WeaponsData.FireCooldown;
+            m_reloadTime = m_currentWeapon.WeaponsData.TimeToReload;
+            m_currentWeapon.Reload();
+        }
+
+        private void Shoot() {
+            if (m_fireCooldown > 0 || m_currentWeapon == null || !m_isFiring || m_isReloading) return;
+
+            if (!m_currentWeapon.CanShoot()) {
+                m_isReloading = true;
+                return;
+            }
+            
+            m_currentWeapon.Shoot();
+            m_fireCooldown = m_currentWeapon.WeaponsData.FireCooldown;
         }
     }
 }

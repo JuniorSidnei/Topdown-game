@@ -28,7 +28,11 @@ namespace topdownGame.Events {
     }
 
     public class OnFire {
-        public OnFire() { }
+        public OnFire(bool firing) {
+            Firing = firing;
+        }
+
+        public bool Firing;
     }
 
     public class OnSimpleBulletHit {

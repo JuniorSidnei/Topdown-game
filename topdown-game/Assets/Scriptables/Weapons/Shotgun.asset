@@ -19,3 +19,5 @@ MonoBehaviour:
     type: 3}
   Damage: 300
   FireCooldown: 1
+  AmmunitionAmount: 4
+  TimeToReload: 0.5

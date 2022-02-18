@@ -10,15 +10,31 @@ namespace topdownGame.Weapons.Pistol {
     public class Pistol : Weapon {
         
         public Transform SpawnTransform;
+
+        private int m_currentAmmunition;
         
+        public WeaponsData GetData() {
+            return WeaponsData;
+        }
+
         public override void Shoot() {
             var tempBullet = Instantiate(WeaponsData.BulletObj, SpawnTransform.position, Quaternion.identity);
             tempBullet.transform.right = transform.right;
+            m_currentAmmunition -= 1;
+            Debug.Log("munição: " + m_currentAmmunition);
         }
 
         public override void Especial()
         {
             Debug.Log("especial de pistola");
+        }
+
+        public override void Reload() {
+            m_currentAmmunition = WeaponsData.AmmunitionAmount;
+        }
+
+        public override bool CanShoot() {
+            return m_currentAmmunition > 0;
         }
     }
 }

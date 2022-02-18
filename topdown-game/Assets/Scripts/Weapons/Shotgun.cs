@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using topdownGame.Weapons.Info;
 using UnityEngine;
 
 namespace topdownGame.Weapons.Shotgum {
 
     public class Shotgun : Weapon {
         public List<Transform> SpawnsTransforns;
-        
+
+        // public override WeaponsData GetData() {
+        //     return WeaponsData;
+        // }
+
         public override void Shoot() {
             foreach (var spawn in SpawnsTransforns) {
                 var tempBullet = Instantiate(WeaponsData.BulletObj, spawn.position, Quaternion.identity);
@@ -15,6 +20,16 @@ namespace topdownGame.Weapons.Shotgum {
         }
 
         public override void Especial()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Reload()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override bool CanShoot()
         {
             throw new System.NotImplementedException();
         }
