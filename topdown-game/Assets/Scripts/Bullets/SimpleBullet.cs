@@ -5,6 +5,7 @@ using topdownGame.Controller;
 using topdownGame.Events;
 using topdownGame.Managers;
 using topdownGame.Utils;
+using topdownGame.Weapons.Info;
 using UnityEngine;
 
 namespace topdownGame.Bullets
@@ -13,7 +14,7 @@ namespace topdownGame.Bullets
     public class SimpleBullet : MonoBehaviour
     {
         private Controller2D m_controller;
-        public int Damage;
+        public WeaponsData WeaponsData;
         public float Speed;
         [SerializeField] private Collision2DProxy m_collisionProxy;
         
@@ -24,7 +25,7 @@ namespace topdownGame.Bullets
 
         private void OnTrigger2DEnterCallback(Collider2D ev) {
             var emitterInfo = new OnSimpleBulletHit.OnHitEmitterInfo {
-                EmitterDamage = Damage, EmitterObject = gameObject
+                EmitterDamage = WeaponsData.Damage, EmitterObject = gameObject
             };
             
             var receiverInfo = new OnSimpleBulletHit.OnHitReceiverInfo {

@@ -7,16 +7,16 @@ namespace topdownGame.Weapons.Shotgum {
 
     public class Shotgun : Weapon {
         public List<Transform> SpawnsTransforns;
-
-        // public override WeaponsData GetData() {
-        //     return WeaponsData;
-        // }
-
+        
+        private int m_currentAmmunition;
+        
         public override void Shoot() {
             foreach (var spawn in SpawnsTransforns) {
                 var tempBullet = Instantiate(WeaponsData.BulletObj, spawn.position, Quaternion.identity);
                 tempBullet.transform.right = spawn.right;
             }
+
+            m_currentAmmunition -= 1;
         }
 
         public override void Especial()
@@ -24,14 +24,12 @@ namespace topdownGame.Weapons.Shotgum {
             throw new System.NotImplementedException();
         }
 
-        public override void Reload()
-        {
-            throw new System.NotImplementedException();
+        public override void Reload() {
+            m_currentAmmunition = WeaponsData.AmmunitionAmount;
         }
 
-        public override bool CanShoot()
-        {
-            throw new System.NotImplementedException();
+        public override bool CanShoot() {
+            return m_currentAmmunition > 0;
         }
     }
 }

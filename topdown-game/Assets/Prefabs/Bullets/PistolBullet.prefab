@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad85905a8394ad449819afd5b116454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 50
-  Speed: 20
+  WeaponsData: {fileID: 11400000, guid: 06a0f8634acc517419e834efc4d57825, type: 2}
+  Speed: 25
   m_collisionProxy: {fileID: -5972755470037423967}
 --- !u!61 &9040818793161691806
 BoxCollider2D:

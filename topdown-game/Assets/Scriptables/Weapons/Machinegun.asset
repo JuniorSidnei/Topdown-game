@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb5e48fb6c8856143b200410cdc2afbc, type: 3}
-  m_Name: Shotgun
+  m_Name: Machinegun
   m_EditorClassIdentifier: 
-  WeaponType: 2
-  WeaponPrefab: {fileID: 4013000606229793289, guid: 55645423590a05b4898f9246ab523d18,
+  WeaponType: 3
+  WeaponPrefab: {fileID: 3015306858484453719, guid: 793063096e4669b41b4519e1cbcea80b,
     type: 3}
-  BulletObj: {fileID: 5766443822579619002, guid: 51a347d8902cbb546a4d272357b7146c,
+  BulletObj: {fileID: 6834491874949628638, guid: 050df705b6241384e9b70bdd42429108,
     type: 3}
-  Damage: 100
-  FireCooldown: 0.75
-  AmmunitionAmount: 4
-  TimeToReload: 0.5
+  Damage: 50
+  FireCooldown: 0.15
+  AmmunitionAmount: 8
+  TimeToReload: 1

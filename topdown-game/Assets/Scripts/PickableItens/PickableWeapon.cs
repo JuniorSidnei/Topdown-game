@@ -31,9 +31,10 @@ namespace topdownGame.Pickable.Weapons  {
         private void OnCharacterInteraction(Character character) {
             if (m_currentPlayer != character) return;
 
+            m_currentPlayer = character;
             var weapon = gameObject.GetComponent<Weapon>();
-            character.GetComponent<PickupWeaponAction>().EquipWeapon(weapon);
-            character.GetComponent<ShootAction>().SetPickedWeapon(weapon);
+            m_currentPlayer.GetComponent<PickupWeaponAction>().EquipWeapon(weapon);
+            m_currentPlayer.GetComponent<ShootAction>().SetPickedWeapon(weapon);
         }
 
         private void OnTriggerEnter2D(Collider2D other) {

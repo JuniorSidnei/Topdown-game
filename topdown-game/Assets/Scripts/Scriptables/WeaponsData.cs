@@ -8,13 +8,13 @@ namespace topdownGame.Weapons.Info {
     public class WeaponsData : ScriptableObject {
 
         public enum WeaponTypeData {
-            None, Pistol, Shotgun
+            None, Pistol, Shotgun, Machinegun
         }
 
         public WeaponTypeData WeaponType;
         public GameObject WeaponPrefab;
         public GameObject BulletObj;
-        public float Damage;
+        public int Damage;
         public float FireCooldown;
         public int AmmunitionAmount;
         public float TimeToReload;

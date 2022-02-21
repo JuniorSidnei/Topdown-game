@@ -21,7 +21,6 @@ namespace topdownGame.Weapons.Pistol {
             var tempBullet = Instantiate(WeaponsData.BulletObj, SpawnTransform.position, Quaternion.identity);
             tempBullet.transform.right = transform.right;
             m_currentAmmunition -= 1;
-            Debug.Log("munição: " + m_currentAmmunition);
         }
 
         public override void Especial()

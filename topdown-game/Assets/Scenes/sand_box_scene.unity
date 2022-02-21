@@ -5900,7 +5900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d63526ea70df84f8b2940f781338a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 100
+  m_speed: 80
   m_acceleration: 0.015
 --- !u!114 &528104859
 MonoBehaviour:
@@ -5929,8 +5929,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterConstitution: {fileID: 11400000, guid: 5f6a042c2a6208a4e9216ca7be04d812,
     type: 2}
-  m_dashForce: 1200
-  m_dashCooldownTimer: 0.5
+  m_dashForce: 600
+  m_dashCooldownTimer: 0.35
   m_dashStaminaGas: 1
   m_dashRecover: 0.2
 --- !u!114 &528104861
@@ -7325,6 +7325,87 @@ MonoBehaviour:
   - {x: 10.641087, y: -0.3468113, z: 0}
   - {x: 10.702362, y: 0.19362283, z: 0}
   - {x: -10.45726, y: 0.2548983, z: 0}
+--- !u!1001 &2898802098551346744
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1412761057610343882, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: WeaponsData
+      value: 
+      objectReference: {fileID: 11400000, guid: cc34077451eda124396b93401e1338c9,
+        type: 2}
+    - target: {fileID: 2191440296601313305, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: WeaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: cc34077451eda124396b93401e1338c9,
+        type: 2}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453718, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015306858484453719, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: m_Name
+      value: Machinegun
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 793063096e4669b41b4519e1cbcea80b, type: 3}
 --- !u!1001 &5815242761511636780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7413,5 +7494,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5815242762683628266, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
