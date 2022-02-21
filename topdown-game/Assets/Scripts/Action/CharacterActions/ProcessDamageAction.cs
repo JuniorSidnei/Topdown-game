@@ -38,6 +38,8 @@ namespace topdownGame.Actions
             m_damageCooldown = DamageCooldown;
             var directionX = 0;
             var directionY = 0;
+
+            if (ev.Emitter.EmitterObject == null) return;
             
             if (ev.Emitter.EmitterObject.transform.position.x < ev.Receiver.ReceiverObject.transform.position.x) {
                 directionX = 1;
