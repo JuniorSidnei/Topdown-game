@@ -24,6 +24,10 @@ namespace topdownGame.Actions {
             set => m_velocity = value;
         }
 
+        public Vector3 PositionDelta {
+            get => m_positionDelta;
+        }
+        
         public Collision2DProxy CollisionProxy => m_collisionProxy;
         
         public delegate void InteractAction(Character character);
@@ -40,7 +44,7 @@ namespace topdownGame.Actions {
             var oldPos = transform.position;
             m_velocity *= (1 - Time.deltaTime * m_drag);
             m_controller.Move(m_velocity * Time.deltaTime);
-            m_positionDelta = transform.position - oldPos; 
+            m_positionDelta = transform.position - oldPos;
         }
 
         private void OnPickUpItem(OnPickUpItem ev) {
