@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &484106149588325002
 Transform:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4013000605840804517
 Transform:
   m_ObjectHideFlags: 0
@@ -503,7 +503,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1377802351
   m_SortingLayer: 5
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -612737199, guid: c7eed7f8647e36441b68875962b58721, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -527,8 +527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df59506d3a7bb0d4a89ab1a31e9cea01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
   AimRend: {fileID: 4013000605840804516}
   TargetRend: {fileID: 4013000606229793302}
+  IsWeapon: 1
 --- !u!114 &1005056865150467732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +560,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.31377792, y: 0.055111073}
   serializedVersion: 2
-  m_Radius: 0.48000002
+  m_Radius: 2
 --- !u!114 &1147616071
 MonoBehaviour:
   m_ObjectHideFlags: 0

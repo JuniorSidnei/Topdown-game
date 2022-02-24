@@ -39,7 +39,7 @@ namespace topdownGame.Actions {
 
             m_aimAngle = AngleBetweenPoints(transform.position, m_mouseWorldPosition);
             
-            TargetRend.flipY = m_aimAngle is <= -90 or >= 90;
+            TargetRend.flipY = m_aimAngle is < -90 or > 90;
             TargetRend.sortingOrder = TargetRend.flipY ? 1 : 0;
        
             transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,m_aimAngle));

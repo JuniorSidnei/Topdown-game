@@ -18,7 +18,7 @@ namespace topdownGame.Actions
         private Character m_character;
 
         private float m_damageCooldown;
-        
+
         private void Start()
         {
             m_character = GetComponent<Character>();
@@ -31,9 +31,9 @@ namespace topdownGame.Actions
             if (m_damageCooldown <= 0) m_damageCooldown = 0;
         }
 
-        private void OnSimpleBulletHit(OnSimpleBulletHit ev)
-        {
-            if (ev.Receiver.Character != m_character || m_damageCooldown > 0) return;
+        private void OnSimpleBulletHit(OnSimpleBulletHit ev) {
+            
+            if (ev.Receiver.Character != m_character || m_damageCooldown > 0 || gameObject == null) return;
             
             m_damageCooldown = DamageCooldown;
             var directionX = 0;
@@ -52,6 +52,8 @@ namespace topdownGame.Actions
             } else if (ev.Emitter.EmitterObject.transform.position.y > ev.Receiver.ReceiverObject.transform.position.y) {
                 directionY = -1;
             }
+            
+            GameManager.Instance.GlobalDispatcher.Emit(new OnDamageText(transform.position, ev.Emitter.EmitterDamage));
             
             var to = Vector3.zero;
             to = new Vector3(KnockbackForce.x * directionX, KnockbackForce.y * directionY);

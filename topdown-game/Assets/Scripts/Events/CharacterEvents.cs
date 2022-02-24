@@ -77,5 +77,15 @@ namespace topdownGame.Events {
 
         public GameObject Weapon;
     }
+
+    public class OnDamageText {
+        public OnDamageText(Vector3 position, int damage) {
+            Position = position;
+            Damage = damage;
+        }
+
+        public Vector3 Position;
+        public int Damage;
+    }
 }
 

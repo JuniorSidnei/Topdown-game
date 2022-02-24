@@ -590,8 +590,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df59506d3a7bb0d4a89ab1a31e9cea01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
   AimRend: {fileID: 3015306857860518394}
   TargetRend: {fileID: 3015306858484453704}
+  IsWeapon: 1
 --- !u!114 &1412761057610343882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236ad155f9b70d749a147d7ad703f301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponsData: {fileID: 11400000, guid: 06a0f8634acc517419e834efc4d57825, type: 2}
+  WeaponsData: {fileID: 11400000, guid: cc34077451eda124396b93401e1338c9, type: 2}
   SpawnTransform: {fileID: 3015306858297858019}
 --- !u!58 &2191440296601313302
 CircleCollider2D:
@@ -637,7 +639,7 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
-  WeaponData: {fileID: 11400000, guid: 06a0f8634acc517419e834efc4d57825, type: 2}
+  WeaponData: {fileID: 11400000, guid: cc34077451eda124396b93401e1338c9, type: 2}
   WeaponInfo: {fileID: 2349739056987041127}
   WeaponName: {fileID: 3960065903966426558}
 --- !u!1 &3015306859795731846

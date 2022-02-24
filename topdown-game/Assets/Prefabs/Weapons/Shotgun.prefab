@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &688089702
 Transform:
   m_ObjectHideFlags: 0
@@ -554,7 +554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4013000605840804517
 Transform:
   m_ObjectHideFlags: 0
@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 4013000606229793303}
   - component: {fileID: 291011680}
   - component: {fileID: 1178266090}
+  - component: {fileID: 1178266095}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -728,8 +729,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df59506d3a7bb0d4a89ab1a31e9cea01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
   AimRend: {fileID: 4013000605840804516}
   TargetRend: {fileID: 4013000606229793302}
+  IsWeapon: 1
 --- !u!114 &291011680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,6 +768,22 @@ MonoBehaviour:
   WeaponData: {fileID: 11400000, guid: 1a9bc18e8c96fc9418787633271e1ab8, type: 2}
   WeaponInfo: {fileID: 1500117136}
   WeaponName: {fileID: 1687406465}
+--- !u!58 &1178266095
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013000606229793289}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.41418415, y: 0.006619394}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &4013000606412590270
 GameObject:
   m_ObjectHideFlags: 0
