@@ -543,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236ad155f9b70d749a147d7ad703f301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerCollider: {fileID: 1147616072}
   WeaponsData: {fileID: 11400000, guid: 06a0f8634acc517419e834efc4d57825, type: 2}
   SpawnTransform: {fileID: 4013000606412590269}
 --- !u!58 &1147616072
@@ -603,7 +604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4013000606412590270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.859, y: 0.058, z: 0}
+  m_LocalPosition: {x: -0.899, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -54,12 +54,16 @@ namespace topdownGame.Actions
             }
             
             GameManager.Instance.GlobalDispatcher.Emit(new OnDamageText(transform.position, ev.Emitter.EmitterDamage));
+            var emitterDamage = ev.Emitter.EmitterDamage;
+            
+            //if i want to make a skill that pass through enemies just disable this
+            Destroy(ev.Emitter.EmitterObject);
             
             var to = Vector3.zero;
             to = new Vector3(KnockbackForce.x * directionX, KnockbackForce.y * directionY);
             to += m_character.Velocity;
             DOTween.To(() => m_character.Velocity, velocity => m_character.Velocity = to, to, .1f).SetEase(Ease.Linear).OnComplete(() => {
-                GameManager.Instance.GlobalDispatcher.Emit(new OnLifeUpdate(m_character, ev.Emitter.EmitterDamage));
+                GameManager.Instance.GlobalDispatcher.Emit(new OnLifeUpdate(m_character, emitterDamage));
             });
         }
     }

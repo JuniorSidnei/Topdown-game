@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236ad155f9b70d749a147d7ad703f301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerCollider: {fileID: 2191440296601313302}
   WeaponsData: {fileID: 11400000, guid: cc34077451eda124396b93401e1338c9, type: 2}
   SpawnTransform: {fileID: 3015306858297858019}
 --- !u!58 &2191440296601313302

@@ -8,11 +8,11 @@ using topdownGame.Utils;
 using topdownGame.Weapons.Info;
 using UnityEngine;
 
-namespace topdownGame.Bullets
-{
-
-    public class SimpleBullet : MonoBehaviour
-    {
+namespace topdownGame.Bullets {
+    
+    public class SimpleBullet : MonoBehaviour {
+        
+        public LayerMask ObstacleLayer;
         private Controller2D m_controller;
         public WeaponsData WeaponsData;
         public float Speed;
@@ -24,6 +24,10 @@ namespace topdownGame.Bullets
         }
 
         private void OnTrigger2DEnterCallback(Collider2D ev) {
+            if(((1 << ev.gameObject.layer) & ObstacleLayer) == 0) {
+                return;
+            }
+            
             var emitterInfo = new OnSimpleBulletHit.OnHitEmitterInfo {
                 EmitterDamage = WeaponsData.Damage, EmitterObject = gameObject
             };

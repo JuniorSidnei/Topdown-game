@@ -29,6 +29,7 @@ namespace topdownGame.Actions.Pickable {
             weaponTransform.localRotation = Quaternion.identity;
             var aim = m_currentWeapon.GetComponent<AimAction>();
             aim.Show(true);
+            m_currentWeapon.DeactivateTriggerCollider();
             CurrentWeaponType = m_currentWeapon.WeaponsData.WeaponType;
         }
 
@@ -42,6 +43,7 @@ namespace topdownGame.Actions.Pickable {
             CurrentWeaponType = WeaponsData.WeaponTypeData.None;
             var aim = m_currentWeapon.GetComponent<AimAction>();
             aim.Show(false);
+            m_currentWeapon.ActivateTriggerCollider();
             m_currentWeapon = null;
         }
     }

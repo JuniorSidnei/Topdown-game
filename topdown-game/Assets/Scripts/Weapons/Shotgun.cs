@@ -7,7 +7,6 @@ namespace topdownGame.Weapons.Shotgum {
 
     public class Shotgun : Weapon {
         public List<Transform> SpawnsTransforns;
-        
         private int m_currentAmmunition;
         
         public override void Shoot() {
@@ -30,6 +29,14 @@ namespace topdownGame.Weapons.Shotgum {
 
         public override bool CanShoot() {
             return m_currentAmmunition > 0;
+        }
+        
+        public override void ActivateTriggerCollider() {
+            TriggerCollider.enabled = true;
+        }
+
+        public override void DeactivateTriggerCollider() {
+            TriggerCollider.enabled = false;
         }
     }
 }

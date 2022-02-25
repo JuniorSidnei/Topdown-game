@@ -102,6 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad85905a8394ad449819afd5b116454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObstacleLayer:
+    serializedVersion: 2
+    m_Bits: 2097152
   WeaponsData: {fileID: 11400000, guid: cc34077451eda124396b93401e1338c9, type: 2}
   Speed: 30
   m_collisionProxy: {fileID: 5429004533085166011}
@@ -145,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 2097280
+    m_Bits: 128
   boxCollider: {fileID: 0}
   m_horizontalRaySpacing: 0
   m_verticalRaySpacing: 0

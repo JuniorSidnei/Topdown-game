@@ -10,7 +10,6 @@ namespace topdownGame.Weapons.Pistol {
     public class Pistol : Weapon {
         
         public Transform SpawnTransform;
-
         private int m_currentAmmunition;
         
         public WeaponsData GetData() {
@@ -34,6 +33,14 @@ namespace topdownGame.Weapons.Pistol {
 
         public override bool CanShoot() {
             return m_currentAmmunition > 0;
+        }
+
+        public override void ActivateTriggerCollider() {
+            TriggerCollider.enabled = true;
+        }
+
+        public override void DeactivateTriggerCollider() {
+            TriggerCollider.enabled = false;
         }
     }
 }

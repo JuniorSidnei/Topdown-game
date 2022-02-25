@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace topdownGame.Weapons {
     public abstract class Weapon : MonoBehaviour {
-        
+
+        public CircleCollider2D TriggerCollider;
         public WeaponsData WeaponsData;
 
         //public abstract WeaponsData GetData();
@@ -13,5 +14,7 @@ namespace topdownGame.Weapons {
         public abstract void Especial();
         public abstract void Reload();
         public abstract bool CanShoot();
+        public abstract void ActivateTriggerCollider();
+        public abstract void DeactivateTriggerCollider();
     }
 }
