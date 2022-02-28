@@ -18,7 +18,7 @@ namespace topdownGame.Characters.Animation
         }
         
         private void Update()  {
-            //m_anim.SetFloat("deltaPos", m_character.PositionDelta.sqrMagnitude);
+            m_anim.SetFloat("deltaMovement", m_character.PositionDelta.sqrMagnitude);
 
             //var aimAction = m_shootAction.GetAimAction();
             //if (aimAction) {
