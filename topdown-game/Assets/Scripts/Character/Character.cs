@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using topdownGame.Controller;
@@ -39,7 +40,11 @@ namespace topdownGame.Actions {
             
             GameManager.Instance.GlobalDispatcher.Subscribe<OnPickUpItem>(OnPickUpItem);
         }
-        
+
+        private void OnDisable()  {
+            GameManager.Instance.GlobalDispatcher.Unsubscribe<OnPickUpItem>(OnPickUpItem);
+        }
+
         private void FixedUpdate() {
             var oldPos = transform.position;
             m_velocity *= (1 - Time.deltaTime * m_drag);
@@ -47,7 +52,7 @@ namespace topdownGame.Actions {
             m_positionDelta = transform.position - oldPos;
         }
 
-        private void OnPickUpItem(OnPickUpItem ev) {
+        private void OnPickUpItem(OnPickUpItem ev)  {
             OnInteract?.Invoke(this);
         }
     }

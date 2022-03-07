@@ -6,12 +6,9 @@ using topdownGame.Actions;
 using topdownGame.Controller;
 using UnityEngine;
 
-namespace topdownGame.IA
-{
-
-
-    public class EnemySeeker : MonoBehaviour
-    {
+namespace topdownGame.IA  {
+    
+    public class EnemySeeker : MonoBehaviour  {
         public Transform Target;
         public Path Path;
 
@@ -19,13 +16,14 @@ namespace topdownGame.IA
         public float nextWaypointDistance;
         private bool m_reachedEndOfPath;
         
-
         private Character m_character;
         private Seeker m_seeker;
         private int m_currentWaypoint = 0;
         private Vector3 m_velocitySmoothing;
 
-
+        public delegate void OnReachedTarget(Character character, bool canShoot);
+        public static event OnReachedTarget OnReached;
+        
         private void Awake() {
             m_character = GetComponent<Character>();
             m_seeker = GetComponent<Seeker>();
@@ -58,10 +56,12 @@ namespace topdownGame.IA
             
             if (m_currentWaypoint >= Path.vectorPath.Count) {
                 m_reachedEndOfPath = true;
-                Debug.Log("vou atirar nesse safado");
+                OnReached?.Invoke(m_character, true);
                 return;
             }
-
+            
+            OnReached?.Invoke(m_character, false);
+            
             var dir = (Path.vectorPath[m_currentWaypoint] - transform.position).normalized;
             var velocity = dir * speed * Time.deltaTime;
             m_character.Velocity += velocity;

@@ -29,10 +29,11 @@ namespace topdownGame.Pickable.Weapons  {
         }
 
         private void OnCharacterInteraction(Character character) {
-            if (m_currentPlayer != character) return;
+            if(m_currentPlayer != character) return;
             
             var weapon = gameObject.GetComponent<Weapon>();
-            m_currentPlayer.GetComponent<ShootAction>().SetPickedWeapon(weapon);
+            //the enemy action will call this functions in the awake with the weapon that is currently an object in the script
+            m_currentPlayer.GetComponent<PlayerShoot>().SetPickedWeapon(weapon);
             m_currentPlayer.GetComponent<PickupWeaponAction>().EquipWeapon(weapon);
         }
 
