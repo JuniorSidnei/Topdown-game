@@ -58,6 +58,7 @@ namespace topdownGame.IA
             
             if (m_currentWaypoint >= Path.vectorPath.Count) {
                 m_reachedEndOfPath = true;
+                Debug.Log("vou atirar nesse safado");
                 return;
             }
 
@@ -70,33 +71,6 @@ namespace topdownGame.IA
             if (distanceToWaypoint < nextWaypointDistance) {
                 m_currentWaypoint++;
             }
-            
-            //reachedEndOfPath = false;
-            
-
-            // var distanceToWaypoint = 0.0f;
-            // while (true) {
-            //     
-            //     distanceToWaypoint = Vector3.Distance(transform.position, Path.vectorPath[m_currentWaypoint]);
-            //
-            //     if (distanceToWaypoint < nextWaypointDistance) {
-            //         if (m_currentWaypoint + 1 < Path.vectorPath.Count) {
-            //             m_currentWaypoint++;
-            //         }
-            //         else {
-            //             reachedEndOfPath = true;
-            //             break;
-            //         }
-            //     }
-            //     else {
-            //         break;
-            //     }
-            // }
-
-            //var speedFactor = reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint / nextWaypointDistance) : 1f;
-            //var dir = (Path.vectorPath[m_currentWaypoint] - transform.position).normalized;
-            //var velocity = dir * speed * speedFactor;
-            //m_character.Velocity = velocity * Time.deltaTime;
         }
     }
 }

@@ -20,8 +20,6 @@ namespace topdownGame.Actions {
         private Character m_character;
         
         public float AimAngle => m_aimAngle;
-
-        //public Vector3 MouseWorldPosition => m_mouseWorldPosition.normalized;
         public Vector2 AimDirection => m_mouseWorldPosition -  transform.position;
         
         private void Awake() {
@@ -40,8 +38,7 @@ namespace topdownGame.Actions {
             m_aimAngle = AngleBetweenPoints(transform.position, m_mouseWorldPosition);
             
             TargetRend.flipY = m_aimAngle is < -90 or > 90;
-            //TargetRend.sortingOrder = TargetRend.flipY ? 1 : 0;
-       
+
             transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,m_aimAngle));
             AimRend.gameObject.transform.position = m_mouseWorldPosition;
             AimRend.gameObject.transform.rotation = quaternion.Euler(new Vector3(0, 0,0));
