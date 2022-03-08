@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19409782, y: -0.006293535}
+  m_Offset: {x: -0.0049333572, y: -0.00019133091}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.37091184, y: 0.18965161}
+  m_Size: {x: 0.5112591, y: 0.4886539}
   m_EdgeRadius: 0
 --- !u!114 &3495073611486801025
 MonoBehaviour:
@@ -233,18 +233,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_LightType: 2
-  m_BlendStyleIndex: 0
+  m_BlendStyleIndex: 3
   m_FalloffIntensity: 0.29
-  m_Color: {r: 0.08662248, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.31083107, g: 1, b: 0, a: 1}
   m_Intensity: 30
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f93f8fba919167e0adeb7b9017
-  m_LightCookieSprite: {fileID: 21300000, guid: 12e2d1f5adc407748a1d4591458e9317,
+  m_LightCookieSprite: {fileID: 21300000, guid: ea3262f8ba2cb334fbaf4b89b36d8775,
     type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 1
-  m_OverlapOperation: 1
+  m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0

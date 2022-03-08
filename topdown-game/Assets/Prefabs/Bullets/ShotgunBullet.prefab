@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19409782, y: -0.006293535}
+  m_Offset: {x: -0.0068740845, y: 0.002621889}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.37091184, y: 0.18965161}
+  m_Size: {x: 0.51950264, y: 0.4927764}
   m_EdgeRadius: 0
 --- !u!114 &4494177714935380709
 MonoBehaviour:
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.29
-  m_Color: {r: 0.9960785, g: 0.20392159, b: 0.16078432, a: 1}
+  m_Color: {r: 0.9960785, g: 0.20392159, b: 0.16078432, a: 0.3137255}
   m_Intensity: 30
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0

@@ -6392,7 +6392,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0, b: 0.8153982, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1.2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: b391b5f9
@@ -8279,7 +8279,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.2
+  m_Intensity: 0.15
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f93f8fba919167e0ad
@@ -8531,6 +8531,18 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 528104856}
+    - target: {fileID: 1811286876, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
+      propertyPath: iterations
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811286876, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
+      propertyPath: smoothType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811286876, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
+      propertyPath: uniformLength
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1811286885, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
       propertyPath: Target
       value: 
@@ -8540,6 +8552,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5815242762683628262, guid: 4113323d1710ee247a7eac37cd8b89e6,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5228722
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815242762683628262, guid: 4113323d1710ee247a7eac37cd8b89e6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9430003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815242762683628262, guid: 4113323d1710ee247a7eac37cd8b89e6,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.008077979
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815242762683628262, guid: 4113323d1710ee247a7eac37cd8b89e6,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08526206
+      objectReference: {fileID: 0}
     - target: {fileID: 5815242762683628263, guid: 4113323d1710ee247a7eac37cd8b89e6,
         type: 3}
       propertyPath: m_RootOrder
