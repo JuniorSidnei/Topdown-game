@@ -7,13 +7,12 @@ using topdownGame.Managers;
 using topdownGame.Weapons;
 using UnityEngine;
 
-namespace topdownGame.Actions
-{
-
-
+namespace topdownGame.Actions {
+    
     public class EnemyShoot : ShootAction {
         
         [SerializeField] private Weapon m_currentWeapon;
+        public float FireCooldown;
         private AimToTarget m_aimTotarget;
 
         private Character m_character;
@@ -22,6 +21,7 @@ namespace topdownGame.Actions
             EnemySeeker.OnReached += OnFire;
             m_character = GetComponent<Character>();
             SetPickedWeapon(m_currentWeapon);
+            m_currentWeapon.WeaponsData.FireCooldown = FireCooldown;
         }
 
         private void OnFire(Character character, bool canShoot) {

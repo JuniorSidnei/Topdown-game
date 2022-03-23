@@ -17,7 +17,7 @@ MonoBehaviour:
     type: 3}
   BulletObj: {fileID: 6834491874949628638, guid: 050df705b6241384e9b70bdd42429108,
     type: 3}
-  Damage: 50
+  Damage: 2
   FireCooldown: 0.15
   AmmunitionAmount: 8
   TimeToReload: 1

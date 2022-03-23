@@ -26,7 +26,7 @@ namespace topdownGame.Enemy.Actions {
         private void OnLifeUpdate(OnLifeUpdate ev) {
             if (ev.Character != m_character || m_life <= 0) return;
             
-           m_life -= ev.Amount;
+            m_life -= ev.Amount;
             
             if (m_life <= 0) {
                 DestroyImmediate(gameObject);

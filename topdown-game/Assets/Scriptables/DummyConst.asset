@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8888625738a878a438c31b892bae3c65, type: 3}
   m_Name: DummyConst
   m_EditorClassIdentifier: 
-  MaxHealth: 2000
+  MaxHealth: 50
   MaxStamina: 500

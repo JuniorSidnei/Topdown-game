@@ -17,7 +17,7 @@ namespace topdownGame.Hud {
         }
         
         public void UpdateStaminaBar(float currentStaminaInGame) {
-            StaminaBar.material.DOColor(currentStaminaInGame <= 0.1f ? Color.red : Color.white, 0.2f);
+            StaminaBar.DOColor(currentStaminaInGame <= 0.1f ? Color.red : Color.white, 0.2f);
             StaminaBar.DOFillAmount(currentStaminaInGame, 0.2f);
         }
     }

@@ -519,9 +519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18be555d168b6ad488361a517dea18bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageContact:
-    serializedVersion: 2
-    m_Bits: 16384
   KnockbackForce: {x: 20, y: 20}
   DamageCooldown: 0.1
 --- !u!114 &5815242762683628257
@@ -615,7 +612,8 @@ MonoBehaviour:
   Target: {fileID: 0}
   speed: 3000
   nextWaypointDistance: 10
-  minimumTargetDistance: 5
+  minimumTargetDistance: 8
+  waypointDistanceOffset: 15
 --- !u!114 &1811286876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +666,7 @@ MonoBehaviour:
   WeaponRightHolder: {fileID: 0}
   WeaponLeftHolder: {fileID: 0}
   m_currentWeapon: {fileID: 6719733069427460859}
+  FireCooldown: 0.5
 --- !u!1 &8071942910672193791
 GameObject:
   m_ObjectHideFlags: 0

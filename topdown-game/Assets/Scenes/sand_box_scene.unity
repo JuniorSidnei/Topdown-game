@@ -5821,6 +5821,7 @@ GameObject:
   - component: {fileID: 528104866}
   - component: {fileID: 528104867}
   - component: {fileID: 528104868}
+  - component: {fileID: 528104869}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -6040,8 +6041,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18be555d168b6ad488361a517dea18bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockbackForce: {x: 15, y: 15}
-  DamageCooldown: 0.1
+  KnockbackForce: {x: 30, y: 30}
+  DamageCooldown: 0.2
+--- !u!114 &528104869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528104851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0be6719ca45104fa10f514db82728d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterConstitution: {fileID: 11400000, guid: 5f6a042c2a6208a4e9216ca7be04d812,
+    type: 2}
 --- !u!1 &739453748
 GameObject:
   m_ObjectHideFlags: 0
@@ -8546,14 +8561,6 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 528104856}
-    - target: {fileID: 1811286875, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
-      propertyPath: nextWaypointDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1811286875, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
-      propertyPath: waypointDistanceOffset
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1811286885, guid: 4113323d1710ee247a7eac37cd8b89e6, type: 3}
       propertyPath: Target
       value: 
