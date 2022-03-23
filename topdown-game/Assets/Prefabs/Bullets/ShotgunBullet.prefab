@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleLayer:
     serializedVersion: 2
-    m_Bits: 2097152
+    m_Bits: 2097216
   WeaponsData: {fileID: 11400000, guid: 1a9bc18e8c96fc9418787633271e1ab8, type: 2}
   Speed: 25
   m_collisionProxy: {fileID: 5010759155291967455}

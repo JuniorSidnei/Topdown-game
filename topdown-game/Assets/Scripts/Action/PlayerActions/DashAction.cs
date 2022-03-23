@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using topdownGame.Characters.Status;
 using topdownGame.Events;
+using topdownGame.Hud;
 using topdownGame.Managers;
 using UnityEngine;
 
@@ -30,11 +31,13 @@ namespace topdownGame.Actions {
         private void Update() {
             m_dashCooldown -= Time.deltaTime;
             if (m_dashCooldown <= 0) m_dashCooldown = 0;
-
+            
             m_characterConstitution.CurrentStaminaInGame += m_dashRecover;
             if (m_characterConstitution.CurrentStaminaInGame >= m_characterConstitution.MaxStaminaInGame) {
                 m_characterConstitution.CurrentStaminaInGame = m_characterConstitution.MaxStaminaInGame;
             }
+            
+            HudManager.Instance.UpdateStaminaBar(m_characterConstitution.CurrentStaminaInGame / m_characterConstitution.MaxStamina);
         }
 
         private void OnMove(OnMove ev) {
@@ -45,7 +48,7 @@ namespace topdownGame.Actions {
 
             if (m_dashCooldown > 0 || m_characterConstitution.CurrentStaminaInGame <= m_dashStaminaGas) return;
             
-            GameManager.Instance.GlobalDispatcher.Emit(new OnStaminaUpdate(m_dashStaminaGas));
+            m_characterConstitution.CurrentStaminaInGame -= m_dashStaminaGas;
             var to = Vector3.zero;
             
             var directionX = m_inputDirection.x;

@@ -12,12 +12,9 @@ namespace topdownGame.Actions {
         [SerializeField] private CharacterConstitution m_characterConstitution;
         
         private void Start() {
-            GameManager.Instance.GlobalDispatcher.Subscribe<OnStaminaUpdate>(OnStaminaUpdate);
+           
         }
 
-        private void OnStaminaUpdate(OnStaminaUpdate ev) {
-            m_characterConstitution.CurrentStaminaInGame -= ev.Amount;
-            //TODO update ui stamina bar
-        }
+      
     }
 }

@@ -1,28 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using topdownGame.Events;
+using topdownGame.Interfaces;
 using topdownGame.Managers;
-using topdownGame.Utils;
 using UnityEngine;
 
-namespace topdownGame.Actions
-{
+namespace topdownGame.Actions {
     
-    public class ProcessDamageAction : MonoBehaviour {
+    public class ProcessDamageAction : MonoBehaviour, IDamageable {
         
-        public LayerMask DamageContact;
         public Vector2 KnockbackForce;
         public float DamageCooldown;
         private Character m_character;
 
         private float m_damageCooldown;
 
-        private void Start()
-        {
+        private void Start() {
             m_character = GetComponent<Character>();
-            GameManager.Instance.GlobalDispatcher.Subscribe<OnSimpleBulletHit>(OnSimpleBulletHit);
             m_damageCooldown = DamageCooldown;
         }
 
@@ -31,36 +24,34 @@ namespace topdownGame.Actions
             if (m_damageCooldown <= 0) m_damageCooldown = 0;
         }
 
-        private void OnSimpleBulletHit(OnSimpleBulletHit ev) {
-            
-            if (ev.Receiver.Character != m_character || m_damageCooldown > 0 || gameObject == null) return;
+        public void Damage(OnBulletHit.EmitterInfo emitter, OnBulletHit.ReceiverInfo receiver)  {
+            if (receiver.Character != m_character || m_damageCooldown > 0 || gameObject == null) return;
             
             m_damageCooldown = DamageCooldown;
             var directionX = 0;
             var directionY = 0;
 
-            if (ev.Emitter.EmitterObject == null) return;
+            if (emitter.Object == null) return;
             
-            if (ev.Emitter.EmitterObject.transform.position.x < ev.Receiver.ReceiverObject.transform.position.x) {
+            if (emitter.Object.transform.position.x < receiver.Object.transform.position.x) {
                 directionX = 1;
-            } else if (ev.Emitter.EmitterObject.transform.position.x > ev.Receiver.ReceiverObject.transform.position.x) {
+            } else if (emitter.Object.transform.position.x > receiver.Object.transform.position.x) {
                 directionX = -1;
             }
 
-            if (ev.Emitter.EmitterObject.transform.position.y < ev.Receiver.ReceiverObject.transform.position.y) {
+            if (emitter.Object.transform.position.y < receiver.Object.transform.position.y) {
                 directionY = 1;
-            } else if (ev.Emitter.EmitterObject.transform.position.y > ev.Receiver.ReceiverObject.transform.position.y) {
+            } else if (emitter.Object.transform.position.y > receiver.Object.transform.position.y) {
                 directionY = -1;
             }
             
-            GameManager.Instance.GlobalDispatcher.Emit(new OnDamageText(transform.position, ev.Emitter.EmitterDamage));
-            var emitterDamage = ev.Emitter.EmitterDamage;
+            GameManager.Instance.GlobalDispatcher.Emit(new OnDamageText(transform.position, emitter.Damage));
+            var emitterDamage = emitter.Damage;
             
             //if i want to make a skill that pass through enemies just disable this
-            Destroy(ev.Emitter.EmitterObject);
-            
-            var to = Vector3.zero;
-            to = new Vector3(KnockbackForce.x * directionX, KnockbackForce.y * directionY);
+            Destroy(emitter.Object);
+
+            var to = new Vector3(KnockbackForce.x * directionX, KnockbackForce.y * directionY);
             to += m_character.Velocity;
             DOTween.To(() => m_character.Velocity, velocity => m_character.Velocity = to, to, .1f).SetEase(Ease.Linear).OnComplete(() => {
                 GameManager.Instance.GlobalDispatcher.Emit(new OnLifeUpdate(m_character, emitterDamage));

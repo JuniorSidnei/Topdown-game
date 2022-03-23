@@ -5820,6 +5820,7 @@ GameObject:
   - component: {fileID: 528104865}
   - component: {fileID: 528104866}
   - component: {fileID: 528104867}
+  - component: {fileID: 528104868}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -5934,7 +5935,7 @@ MonoBehaviour:
     type: 2}
   m_dashForce: 600
   m_dashCooldownTimer: 0.35
-  m_dashStaminaGas: 1
+  m_dashStaminaGas: 50
   m_dashRecover: 0.2
 --- !u!114 &528104861
 MonoBehaviour:
@@ -6027,6 +6028,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponRightHolder: {fileID: 1764389143}
   WeaponLeftHolder: {fileID: 1368603610}
+--- !u!114 &528104868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528104851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18be555d168b6ad488361a517dea18bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KnockbackForce: {x: 15, y: 15}
+  DamageCooldown: 0.1
 --- !u!1 &739453748
 GameObject:
   m_ObjectHideFlags: 0

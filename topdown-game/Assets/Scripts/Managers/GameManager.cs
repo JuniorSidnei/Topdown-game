@@ -1,4 +1,5 @@
 using topdownGame.Utils;
+using UnityEngine.SceneManagement;
 
 namespace topdownGame.Managers
 {
@@ -8,10 +9,9 @@ namespace topdownGame.Managers
 
         public QueuedEventDispatcher GlobalDispatcher = new QueuedEventDispatcher();
 
-        private void Awake()
-        {
+        private void Awake() {
             //GlobalDispatcher.Emit(new OnGameStart());
-            //UIManager.Show();
+            SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
         }
 
         private void Update()

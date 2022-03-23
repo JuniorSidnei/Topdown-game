@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using topdownGame.Actions;
 using topdownGame.Controller;
 using topdownGame.Events;
+using topdownGame.Interfaces;
 using topdownGame.Managers;
 using topdownGame.Utils;
 using topdownGame.Weapons.Info;
@@ -28,15 +29,16 @@ namespace topdownGame.Bullets {
                 return;
             }
             
-            var emitterInfo = new OnSimpleBulletHit.OnHitEmitterInfo {
-                EmitterDamage = WeaponsData.Damage, EmitterObject = gameObject
+            var emitterInfo = new OnBulletHit.EmitterInfo {
+                Damage = WeaponsData.Damage, Object = gameObject
             };
             
-            var receiverInfo = new OnSimpleBulletHit.OnHitReceiverInfo {
-                ReceiverObject = ev.gameObject, Character = ev.gameObject.GetComponent<Character>()
+            var receiverInfo = new OnBulletHit.ReceiverInfo {
+                Object = ev.gameObject, Character = ev.gameObject.GetComponent<Character>()
             };
             
-            GameManager.Instance.GlobalDispatcher.Emit(new OnSimpleBulletHit(emitterInfo, receiverInfo));
+            ev.GetComponent<IDamageable>()?.Damage(emitterInfo, receiverInfo);
+            //GameManager.Instance.GlobalDispatcher.Emit(new OnBulletHit(emitterInfo, receiverInfo));
         }
         
         private void FixedUpdate() {

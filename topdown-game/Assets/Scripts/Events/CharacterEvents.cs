@@ -35,25 +35,25 @@ namespace topdownGame.Events {
         public bool Firing;
     }
 
-    public class OnSimpleBulletHit {
-        public OnSimpleBulletHit(OnHitEmitterInfo emitter, OnHitReceiverInfo receiver) {
+    public class OnBulletHit {
+        public OnBulletHit(EmitterInfo emitter, ReceiverInfo receiver) {
             Emitter = emitter;
             Receiver = receiver;
         }
         
-        public struct OnHitEmitterInfo {
-            public int EmitterDamage;
-            public GameObject EmitterObject;
+        public struct EmitterInfo {
+            public int Damage;
+            public GameObject Object;
             public Character Character;
         }
         
-        public struct OnHitReceiverInfo {
-            public GameObject ReceiverObject;
+        public struct ReceiverInfo {
+            public GameObject Object;
             public Character Character;
         }
         
-        public OnHitEmitterInfo Emitter;
-        public OnHitReceiverInfo Receiver;
+        public EmitterInfo Emitter;
+        public ReceiverInfo Receiver;
     }
 
     public class OnLifeUpdate {
