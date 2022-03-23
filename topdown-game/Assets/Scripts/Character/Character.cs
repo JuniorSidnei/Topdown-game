@@ -42,7 +42,7 @@ namespace topdownGame.Actions {
         }
 
         private void OnDisable()  {
-            GameManager.Instance.GlobalDispatcher.Unsubscribe<OnPickUpItem>(OnPickUpItem);
+            //GameManager.Instance.GlobalDispatcher.Unsubscribe<OnPickUpItem>(OnPickUpItem);
         }
 
         private void FixedUpdate() {

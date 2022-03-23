@@ -14,14 +14,18 @@ namespace topdownGame.IA  {
 
         public float speed;
         public float nextWaypointDistance;
-        private bool m_reachedEndOfPath;
+        public float minimumTargetDistance;
+        [Range(0, 15)]
+        public int waypointDistanceOffset;
         
         private Character m_character;
         private Seeker m_seeker;
         private int m_currentWaypoint = 0;
         private Vector3 m_velocitySmoothing;
-
-        public delegate void OnReachedTarget(Character character, bool canShoot);
+        private float m_targetDistance;
+        private bool m_reachedEndOfPath;
+        
+        public delegate void OnReachedTarget(Character character, bool canMakeAction);
         public static event OnReachedTarget OnReached;
         
         private void Awake() {
@@ -52,15 +56,22 @@ namespace topdownGame.IA  {
         private void FixedUpdate() {
             if (Path == null) return;
 
-            m_reachedEndOfPath = false;
-            
-            if (m_currentWaypoint >= Path.vectorPath.Count) {
+            m_targetDistance = Vector3.Distance(transform.position, Target.transform.position);
+            if (m_reachedEndOfPath) {
+                if (m_targetDistance > minimumTargetDistance) {
+                    m_reachedEndOfPath = false;
+                    OnReached?.Invoke(m_character, false);
+                }
+                else {
+                    OnReached?.Invoke(m_character, true);
+                    return;
+                }
+            }
+
+            if (m_currentWaypoint >= Path.vectorPath.Count - waypointDistanceOffset) {
                 m_reachedEndOfPath = true;
-                OnReached?.Invoke(m_character, true);
                 return;
             }
-            
-            OnReached?.Invoke(m_character, false);
             
             var dir = (Path.vectorPath[m_currentWaypoint] - transform.position).normalized;
             var velocity = dir * speed * Time.deltaTime;
