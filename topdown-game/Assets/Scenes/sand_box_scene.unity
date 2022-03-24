@@ -3042,6 +3042,11 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 528104856}
+    - target: {fileID: 5069454143147184245, guid: 0967c58eb95723e4c97e5b99a31b5c1a,
+        type: 3}
+      propertyPath: EnemySeekersHelper
+      value: 
+      objectReference: {fileID: 1485221510}
     - target: {fileID: 8523790416823490518, guid: 0967c58eb95723e4c97e5b99a31b5c1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -24014,6 +24019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1485221508}
   - component: {fileID: 1485221509}
+  - component: {fileID: 1485221510}
   m_Layer: 0
   m_Name: A*
   m_TagString: Untagged
@@ -24122,6 +24128,19 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
+--- !u!114 &1485221510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485221507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd12acf380b867c44a41f571ccd99273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpaceBetween: 2
 --- !u!1 &1764389142
 GameObject:
   m_ObjectHideFlags: 0
@@ -27596,6 +27615,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: dummy_p
       objectReference: {fileID: 0}
+    - target: {fileID: 6836145244345695710, guid: 4113323d1710ee247a7eac37cd8b89e6,
+        type: 3}
+      propertyPath: EnemySeekersHelper
+      value: 
+      objectReference: {fileID: 1485221510}
     - target: {fileID: 8553502837265805122, guid: 4113323d1710ee247a7eac37cd8b89e6,
         type: 3}
       propertyPath: Target
@@ -27650,6 +27674,11 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 528104856}
+    - target: {fileID: 5069454143147184245, guid: 0967c58eb95723e4c97e5b99a31b5c1a,
+        type: 3}
+      propertyPath: EnemySeekersHelper
+      value: 
+      objectReference: {fileID: 1485221510}
     - target: {fileID: 8523790416823490518, guid: 0967c58eb95723e4c97e5b99a31b5c1a,
         type: 3}
       propertyPath: m_RootOrder
