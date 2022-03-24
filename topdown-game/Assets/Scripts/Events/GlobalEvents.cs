@@ -15,4 +15,12 @@ namespace topdownGame.Events {
         public float Force;
         public float Duration;
     }
+    
+    public class OnEnemySeekerDeath {
+        public OnEnemySeekerDeath(GameObject seekerObject) {
+            SeekerObject = seekerObject;
+        }
+
+        public GameObject SeekerObject;
+    }
 }

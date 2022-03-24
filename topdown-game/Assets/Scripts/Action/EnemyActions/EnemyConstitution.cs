@@ -30,6 +30,7 @@ namespace topdownGame.Enemy.Actions {
             
             if (m_life <= 0) {
                 GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenShake(8.5f, 0.15f));
+                GameManager.Instance.GlobalDispatcher.Emit(new OnEnemySeekerDeath(gameObject));
                 DestroyImmediate(gameObject);
                 return;
             }
