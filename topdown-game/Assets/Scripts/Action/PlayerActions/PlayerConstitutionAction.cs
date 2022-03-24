@@ -22,14 +22,13 @@ namespace topdownGame.Actions
             GameManager.Instance.GlobalDispatcher.Subscribe<OnLifeUpdate>(OnLifeUpdate);    
         }
 
-        private void OnLifeUpdate(OnLifeUpdate ev)
-        {
+        private void OnLifeUpdate(OnLifeUpdate ev) {
             if (ev.Character != m_character || m_life <= 0) return;
             
             m_life -= ev.Amount;
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenShake(6, 0.1f));
             
             if (m_life <= 0) {
-                //DestroyImmediate(gameObject);
                 Debug.Log("end game");
                 return;
             }

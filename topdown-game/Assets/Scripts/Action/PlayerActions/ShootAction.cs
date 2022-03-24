@@ -36,15 +36,7 @@ namespace topdownGame.Actions {
             m_isReloading = false;
             currentWeapon.Reload();
         }
-
-        // public void SetPickedWeapon(Weapon weapon) {
-        //     m_currentWeapon = weapon;
-        //     m_fireCooldown = m_currentWeapon.WeaponsData.FireCooldown;
-        //     m_reloadTime = m_currentWeapon.WeaponsData.TimeToReload;
-        //     m_currentWeapon.Reload();
-        //     m_aimAction = m_currentWeapon.GetComponent<AimAction>();
-        // }
-
+        
         private void Shoot(Weapon currentWeapon) {
             if (m_fireCooldown > 0 || currentWeapon == null || !m_isFiring || m_isReloading) return;
 
@@ -53,7 +45,7 @@ namespace topdownGame.Actions {
                 return;
             }
             
-            currentWeapon.Shoot();
+            currentWeapon.Shoot(gameObject.layer);
             m_fireCooldown = currentWeapon.WeaponsData.FireCooldown;
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using topdownGame.Bullets;
 using topdownGame.Weapons.Info;
 using UnityEngine;
 
@@ -9,9 +10,10 @@ namespace topdownGame.Weapons.Shotgum {
         public List<Transform> SpawnsTransforns;
         private int m_currentAmmunition;
         
-        public override void Shoot() {
+        public override void Shoot(LayerMask ownerLayer) {
             foreach (var spawn in SpawnsTransforns) {
                 var tempBullet = Instantiate(WeaponsData.BulletObj, spawn.position, Quaternion.identity);
+                tempBullet.GetComponent<SimpleBullet>().SetOwnerLayer(ownerLayer);
                 tempBullet.transform.right = spawn.right;
             }
 

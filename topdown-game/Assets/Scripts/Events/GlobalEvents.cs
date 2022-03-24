@@ -5,8 +5,14 @@ using UnityEngine.InputSystem;
 
 namespace topdownGame.Events {
 
-    public class GlobalEvents {
+    public class OnCameraScreenShake {
 
-        
+        public OnCameraScreenShake(float force, float duration) {
+            Force = force;
+            Duration = duration;
+        }
+
+        public float Force;
+        public float Duration;
     }
 }

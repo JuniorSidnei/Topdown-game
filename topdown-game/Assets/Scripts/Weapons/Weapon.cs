@@ -10,7 +10,7 @@ namespace topdownGame.Weapons {
         public WeaponsData WeaponsData;
 
         //public abstract WeaponsData GetData();
-        public abstract void Shoot();
+        public abstract void Shoot(LayerMask ownerLayer);
         public abstract void Especial();
         public abstract void Reload();
         public abstract bool CanShoot();

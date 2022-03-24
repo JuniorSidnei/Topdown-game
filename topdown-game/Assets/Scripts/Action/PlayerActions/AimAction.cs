@@ -10,7 +10,7 @@ namespace topdownGame.Actions {
 
     public class AimAction : MonoBehaviour {
 
-        public new Camera camera;
+        public UnityEngine.Camera camera;
         public SpriteRenderer AimRend;
         public SpriteRenderer TargetRend;
         public bool IsWeapon;

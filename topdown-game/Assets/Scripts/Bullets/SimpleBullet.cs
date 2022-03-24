@@ -18,6 +18,7 @@ namespace topdownGame.Bullets {
         public WeaponsData WeaponsData;
         public float Speed;
         [SerializeField] private Collision2DProxy m_collisionProxy;
+        private LayerMask m_ownerLayer;
         
         private void Awake() {
             m_controller = GetComponent<Controller2D>();
@@ -28,7 +29,9 @@ namespace topdownGame.Bullets {
             if(((1 << ev.gameObject.layer) & ObstacleLayer) == 0) {
                 return;
             }
-            
+
+            if (ev.gameObject.layer == m_ownerLayer) return;
+
             var emitterInfo = new OnBulletHit.EmitterInfo {
                 Damage = WeaponsData.Damage, Object = gameObject
             };
@@ -49,6 +52,10 @@ namespace topdownGame.Bullets {
 
             var velocity = Vector2.left * Speed;
             m_controller.Move(velocity * Time.deltaTime);
+        }
+
+        public void SetOwnerLayer(LayerMask ownerLayer) {
+            m_ownerLayer = ownerLayer;
         }
     }
 }

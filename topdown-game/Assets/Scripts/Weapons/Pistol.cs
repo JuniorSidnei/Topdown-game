@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using topdownGame.Bullets;
 using topdownGame.Weapons.Info;
 using UnityEngine;
 
@@ -16,8 +17,9 @@ namespace topdownGame.Weapons.Pistol {
             return WeaponsData;
         }
 
-        public override void Shoot() {
+        public override void Shoot(LayerMask ownerLayer) {
             var tempBullet = Instantiate(WeaponsData.BulletObj, SpawnTransform.position, Quaternion.identity);
+            tempBullet.GetComponent<SimpleBullet>().SetOwnerLayer(ownerLayer);
             tempBullet.transform.right = transform.right;
             m_currentAmmunition -= 1;
         }
