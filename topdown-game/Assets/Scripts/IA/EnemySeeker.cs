@@ -44,8 +44,7 @@ namespace topdownGame.IA  {
                 m_seeker.StartPath(transform.position, Target.position);    
             }
         }
-
-
+        
         private void OnPathComplete(Path p) {
             if (p.error) return;
             

@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 2808401471311485182}
   - component: {fileID: 2808401470523287147}
   - component: {fileID: 2808401470523287146}
+  - component: {fileID: 5069454143147184245}
   - component: {fileID: 2808401470523287149}
   - component: {fileID: 2808401470523287124}
   - component: {fileID: 2808401470523287104}
@@ -486,6 +487,19 @@ MonoBehaviour:
   nextWaypointDistance: 10
   minimumTargetDistance: 8
   waypointDistanceOffset: 15
+--- !u!114 &5069454143147184245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523790416823490526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f84b2982d1bd54a9ce28b4db238625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpaceBetween: 2
 --- !u!114 &2808401470523287149
 MonoBehaviour:
   m_ObjectHideFlags: 0
