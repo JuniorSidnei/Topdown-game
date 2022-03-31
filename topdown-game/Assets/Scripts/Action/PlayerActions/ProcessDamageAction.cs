@@ -10,6 +10,7 @@ namespace topdownGame.Actions {
         
         public Vector2 KnockbackForce;
         public float DamageCooldown;
+        public bool IsPropObject;
         private Character m_character;
 
         private float m_damageCooldown;
@@ -24,8 +25,13 @@ namespace topdownGame.Actions {
             if (m_damageCooldown <= 0) m_damageCooldown = 0;
         }
 
-        public void Damage(OnBulletHit.EmitterInfo emitter, OnBulletHit.ReceiverInfo receiver)  {
+        public void Damage(OnBulletHit.EmitterInfo emitter, OnBulletHit.ReceiverInfo receiver, bool destroyEmitterImmediately)  {
             if (receiver.Character != m_character || m_damageCooldown > 0 || gameObject == null) return;
+
+            if (IsPropObject) {
+                Destroy(gameObject);
+                return;
+            }
             
             m_damageCooldown = DamageCooldown;
             var directionX = 0;
@@ -47,9 +53,10 @@ namespace topdownGame.Actions {
             
             GameManager.Instance.GlobalDispatcher.Emit(new OnDamageText(transform.position, emitter.Damage));
             var emitterDamage = emitter.Damage;
-            
-            //if i want to make a skill that pass through enemies just disable this
-            Destroy(emitter.Object);
+
+            if (destroyEmitterImmediately) {
+                Destroy(emitter.Object);
+            }
 
             var to = new Vector3(KnockbackForce.x * directionX, KnockbackForce.y * directionY);
             to += m_character.Velocity;

@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
-using DG.Tweening;
 using topdownGame.Events;
 using topdownGame.Managers;
 using UnityEngine;

@@ -8,6 +8,6 @@ namespace topdownGame.Interfaces {
 
     public interface IDamageable {
         
-        void Damage(OnBulletHit.EmitterInfo emitter, OnBulletHit.ReceiverInfo receiver);
+        void Damage(OnBulletHit.EmitterInfo emitter, OnBulletHit.ReceiverInfo receiver, bool destroyEmitterImmediately = false);
     }
 }

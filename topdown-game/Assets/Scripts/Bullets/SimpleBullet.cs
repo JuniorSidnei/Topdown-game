@@ -41,7 +41,6 @@ namespace topdownGame.Bullets {
             };
             
             ev.GetComponent<IDamageable>()?.Damage(emitterInfo, receiverInfo);
-            //GameManager.Instance.GlobalDispatcher.Emit(new OnBulletHit(emitterInfo, receiverInfo));
         }
         
         private void FixedUpdate() {

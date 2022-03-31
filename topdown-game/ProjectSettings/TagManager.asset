@@ -20,7 +20,7 @@ TagManager:
   - 
   - 
   - PistolBullet
-  - 
+  - Props
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: EnemiesUi
     uniqueID: 395344875
+    locked: 0
+  - name: Props
+    uniqueID: 333198929
     locked: 0
