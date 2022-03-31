@@ -40,7 +40,7 @@ namespace topdownGame.Bullets {
                 Object = ev.gameObject, Character = ev.gameObject.GetComponent<Character>()
             };
             
-            ev.GetComponent<IDamageable>()?.Damage(emitterInfo, receiverInfo);
+            ev.GetComponent<IDamageable>()?.Damage(emitterInfo, receiverInfo, true);
         }
         
         private void FixedUpdate() {

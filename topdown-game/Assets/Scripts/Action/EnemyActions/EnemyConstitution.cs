@@ -29,9 +29,7 @@ namespace topdownGame.Enemy.Actions {
             m_life -= ev.Amount;
             
             if (m_life <= 0) {
-                GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenShake(8.5f, 0.15f));
                 GameManager.Instance.GlobalDispatcher.Emit(new OnEnemySeekerDeath(gameObject));
-                DestroyImmediate(gameObject);
                 return;
             }
             

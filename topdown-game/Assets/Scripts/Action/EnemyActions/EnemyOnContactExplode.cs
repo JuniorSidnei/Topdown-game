@@ -60,7 +60,6 @@ namespace topdownGame.Actions {
             }
             
             GameManager.Instance.GlobalDispatcher.Emit(new OnEnemySeekerDeath(gameObject));
-            Destroy(gameObject);
         }
     }
 }

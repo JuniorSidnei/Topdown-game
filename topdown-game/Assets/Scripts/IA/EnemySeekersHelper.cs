@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using topdownGame.Events;
 using topdownGame.Managers;
 using UnityEngine;
@@ -25,6 +26,7 @@ namespace topdownGame.IA
 
         private void OnEnemySeekerDeath(OnEnemySeekerDeath ev) {
             m_seekerEnemies.Remove(ev.SeekerObject);
+            Destroy(ev.SeekerObject);
         }
 
         public List<GameObject> GetEnemiesSeekers() {
