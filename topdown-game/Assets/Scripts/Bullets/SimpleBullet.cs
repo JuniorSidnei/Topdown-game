@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using topdownGame.Actions;
@@ -14,15 +15,17 @@ namespace topdownGame.Bullets {
     public class SimpleBullet : MonoBehaviour {
         
         public LayerMask ObstacleLayer;
-        private Controller2D m_controller;
         public WeaponsData WeaponsData;
         public float Speed;
+        
         [SerializeField] private Collision2DProxy m_collisionProxy;
+        private Controller2D m_controller;
         private LayerMask m_ownerLayer;
         
         private void Awake() {
             m_controller = GetComponent<Controller2D>();
             m_collisionProxy.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
+            Destroy(gameObject, 0.5f);
         }
 
         private void OnTrigger2DEnterCallback(Collider2D ev) {
@@ -45,7 +48,7 @@ namespace topdownGame.Bullets {
         
         private void FixedUpdate() {
             if (m_controller.collisionsInfo.HasCollision()) {
-                DestroyImmediate(gameObject);
+                Destroy(gameObject);
                 return;
             }
 
@@ -56,5 +59,6 @@ namespace topdownGame.Bullets {
         public void SetOwnerLayer(LayerMask ownerLayer) {
             m_ownerLayer = ownerLayer;
         }
+        
     }
 }

@@ -266,7 +266,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.19}
+  m_Size: {x: 1.0666667, y: 1.2666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -425,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KnockbackForce: {x: 20, y: 20}
   DamageCooldown: 0.1
+  IsPropObject: 0
 --- !u!114 &5815242762683628257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +515,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 3000
   nextWaypointDistance: 10
   minimumTargetDistance: 10

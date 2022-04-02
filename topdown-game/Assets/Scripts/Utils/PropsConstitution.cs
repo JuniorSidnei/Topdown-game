@@ -1,19 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using topdownGame.Events;
 using topdownGame.Interfaces;
+using topdownGame.Managers;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace topdownGame.Utils.Props {
 
     public class PropsConstitution : MonoBehaviour, IDamageable {
         public int Life;
+        public GameObject DestroyedProp;
+        public GameObject PropParts;
 
         public void Damage(OnBulletHit.EmitterInfo emitter, OnBulletHit.ReceiverInfo receiver, bool destroyEmitterImmediately = false) {
             Life -= emitter.Damage;
 
             if (!(Life <= 0)) return;
-            //TODO::spawn particles, play sound, bla bla bla            
+            
+            Instantiate(PropParts, transform.position, Quaternion.identity, transform.parent);
+            Instantiate(DestroyedProp, transform.position, Quaternion.identity, transform.parent);
             Destroy(gameObject);
         }
     }

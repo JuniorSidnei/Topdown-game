@@ -10,11 +10,13 @@ namespace topdownGame.IA  {
     
     public class EnemySeeker : MonoBehaviour  {
         public Transform Target;
+        public LayerMask TargetLayer;
         public Path Path;
 
         public float speed;
         public float nextWaypointDistance;
         public float minimumTargetDistance;
+        public float minimumVisibleTargetDistance;
         [Range(0, 15)]
         public int waypointDistanceOffset;
         
@@ -24,14 +26,13 @@ namespace topdownGame.IA  {
         private Vector3 m_velocitySmoothing;
         private float m_targetDistance;
         private bool m_reachedEndOfPath;
-        
+
         public delegate void OnReachedTarget(Character character, bool canMakeAction);
         public static event OnReachedTarget OnReached;
         
         private void Awake() {
             m_character = GetComponent<Character>();
             m_seeker = GetComponent<Seeker>();
-
             m_seeker.pathCallback += OnPathComplete;
         }
 
@@ -54,8 +55,14 @@ namespace topdownGame.IA  {
         
         private void FixedUpdate() {
             if (Path == null) return;
-
+            
             m_targetDistance = Vector3.Distance(transform.position, Target.transform.position);
+
+            if (m_targetDistance > minimumVisibleTargetDistance) {
+                return;
+            }
+
+            //m_targetDistance = Vector3.Distance(transform.position, Target.transform.position);
             if (m_reachedEndOfPath) {
                 if (m_targetDistance > minimumTargetDistance) {
                     m_reachedEndOfPath = false;
