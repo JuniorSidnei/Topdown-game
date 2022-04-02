@@ -29,7 +29,7 @@ namespace topdownGame.Actions
             GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenShake(6, 0.1f));
             
             if (m_life <= 0) {
-                Debug.Log("end game");
+                HudManager.Instance.ShowPausePanel();
                 return;
             }
             
