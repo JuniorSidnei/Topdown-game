@@ -7,6 +7,11 @@ namespace topdownGame.Utils {
         
         private static T s_instance;
 
-        public static T Instance => s_instance != null ? s_instance : (s_instance = FindObjectOfType<T>());
+        public static T Instance
+        {
+            get {
+                return s_instance != null ? s_instance : (s_instance = FindObjectOfType<T>());
+            }
+        }
     }
 }
