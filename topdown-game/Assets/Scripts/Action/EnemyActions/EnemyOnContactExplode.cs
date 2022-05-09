@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using topdownGame.Events;
 using topdownGame.IA;
 using topdownGame.Interfaces;
@@ -43,7 +44,7 @@ namespace topdownGame.Actions {
             m_isMakingAction = canMakeAction;
             
             var results = Physics2D.CircleCastAll(transform.position, ExplosionRadius, transform.right, ExplosionMaxDistance, TargetLayer);
-            
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenShake(10, 0.15f));
             if (results.Length == 0) return;
 
             foreach (var hit in results) {

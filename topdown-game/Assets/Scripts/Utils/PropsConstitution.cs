@@ -17,7 +17,7 @@ namespace topdownGame.Utils.Props {
 
         public void Damage(OnBulletHit.EmitterInfo emitter, OnBulletHit.ReceiverInfo receiver, bool destroyEmitterImmediately = false) {
             Life -= emitter.Damage;
-
+            GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenShake(1.5f, 0.1f));
             if (!(Life <= 0)) return;
             
             Instantiate(PropParts, transform.position, Quaternion.identity, transform.parent);

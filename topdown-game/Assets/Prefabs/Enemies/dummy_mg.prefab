@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18be555d168b6ad488361a517dea18bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockbackForce: {x: 20, y: 20}
+  KnockbackForce: {x: 40, y: 40}
   DamageCooldown: 0.1
   IsPropObject: 0
 --- !u!114 &8523790416823490512

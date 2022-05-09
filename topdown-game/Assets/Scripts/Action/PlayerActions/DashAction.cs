@@ -16,6 +16,7 @@ namespace topdownGame.Actions {
         [SerializeField] private float m_dashCooldownTimer;
         [SerializeField] private int m_dashStaminaGas;
         [SerializeField] private float m_dashRecover;
+        [SerializeField] private float m_dragDash;
         private float m_dashCooldown;
         
         private Character m_character;
@@ -55,8 +56,8 @@ namespace topdownGame.Actions {
             var directionY = m_inputDirection.y;
             
             to = new Vector3(m_dashForce * directionX, m_dashForce * directionY);
-            to += m_character.Velocity;
-            DOTween.To(() => m_character.Velocity, velocity => m_character.Velocity = to, to, .1f).SetEase(Ease.Linear).OnComplete(() => {
+            to += m_character.Velocity * -m_dragDash;
+            DOTween.To(() => m_character.Velocity, velocity => m_character.Velocity = to, to, .15f).SetEase(Ease.Linear).OnComplete(() => {
                 m_dashCooldown = m_dashCooldownTimer;
             });
         }
