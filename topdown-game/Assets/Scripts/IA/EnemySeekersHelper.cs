@@ -7,13 +7,11 @@ using topdownGame.Events;
 using topdownGame.Managers;
 using UnityEngine;
 
-namespace topdownGame.IA
-{
-
-
-    public class EnemySeekersHelper : MonoBehaviour
-    {
-        private List<GameObject> m_seekerEnemies = new();
+namespace topdownGame.IA {
+    
+    public class EnemySeekersHelper : MonoBehaviour {
+        
+        private List<GameObject> m_seekerEnemies = new List<GameObject>();
         public float SpaceBetween;
 
         private void Awake() {
@@ -27,6 +25,10 @@ namespace topdownGame.IA
         private void OnEnemySeekerDeath(OnEnemySeekerDeath ev) {
             m_seekerEnemies.Remove(ev.SeekerObject);
             Destroy(ev.SeekerObject);
+
+            if (m_seekerEnemies.Count <= 0) {
+                Debug.Log("acabou");
+            }
         }
 
         public List<GameObject> GetEnemiesSeekers() {

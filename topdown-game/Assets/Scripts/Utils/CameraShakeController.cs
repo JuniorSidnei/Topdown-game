@@ -12,7 +12,6 @@ namespace topdownGame.Camera {
         private CinemachineVirtualCamera m_virtualCamera;
         private CinemachineBasicMultiChannelPerlin m_basicPerlin;
         
-        private bool m_isShaking;
         private float m_initialIntensity;
         private float m_shakeTimer;
         private float m_shakeTotalTimer;
@@ -24,8 +23,6 @@ namespace topdownGame.Camera {
         }
 
         private void OnCameraScreenShake(OnCameraScreenShake ev) {
-            
-            m_isShaking = true;
             ShakeCamera(ev.Force, ev.Duration);
         }
 
