@@ -46,8 +46,11 @@ namespace topdownGame.Actions {
             GameManager.Instance.GlobalDispatcher.Emit(new OnCameraScreenShake(15, 0.20f));
             var tempParticle = Instantiate(ExplosionParticle, transform.position, Quaternion.identity);
             Destroy(tempParticle, 0.5f);
-            
-            if (results.Length == 0) return;
+
+            if (results.Length == 0) {
+                GameManager.Instance.GlobalDispatcher.Emit(new OnEnemySeekerDeath(gameObject));
+                return;
+            }
 
             foreach (var hit in results) {
                 var hitObject = hit.collider.gameObject;
