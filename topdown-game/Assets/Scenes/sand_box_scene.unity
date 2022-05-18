@@ -6984,7 +6984,7 @@ TilemapRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.024999976, y: 0.045898438, z: 0}
+  m_ChunkCullingBounds: {x: 0.024999976, y: 0.037500024, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -59670,7 +59670,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 528104856}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 94.4344
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -60133,7 +60133,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 94.4344
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -61522,6 +61522,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1907707817}
     m_Modifications:
+    - target: {fileID: 291011680, guid: 55645423590a05b4898f9246ab523d18, type: 3}
+      propertyPath: InitialParent
+      value: 
+      objectReference: {fileID: 1907707817}
+    - target: {fileID: 291011680, guid: 55645423590a05b4898f9246ab523d18, type: 3}
+      propertyPath: IsShowCasWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 291011680, guid: 55645423590a05b4898f9246ab523d18, type: 3}
+      propertyPath: IsShowCaseWeapon
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4013000606229793288, guid: 55645423590a05b4898f9246ab523d18,
         type: 3}
       propertyPath: m_RootOrder
@@ -68954,6 +68966,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1907707817}
     m_Modifications:
+    - target: {fileID: 1005056865150467732, guid: ca8dbefd9e510214cad241241d732342,
+        type: 3}
+      propertyPath: InitialParent
+      value: 
+      objectReference: {fileID: 1907707817}
+    - target: {fileID: 1005056865150467732, guid: ca8dbefd9e510214cad241241d732342,
+        type: 3}
+      propertyPath: IsShowCasWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005056865150467732, guid: ca8dbefd9e510214cad241241d732342,
+        type: 3}
+      propertyPath: IsShowCaseWeapon
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4013000606229793288, guid: ca8dbefd9e510214cad241241d732342,
         type: 3}
       propertyPath: m_RootOrder
@@ -69508,6 +69535,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: dummy_p
       objectReference: {fileID: 0}
+    - target: {fileID: 1432815784829945736, guid: ba182617bf6aaf54fa9097710e1d4911,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2130022060116983993, guid: ba182617bf6aaf54fa9097710e1d4911,
         type: 3}
       propertyPath: EnemySeekersHelper
@@ -69548,6 +69580,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1907707817}
     m_Modifications:
+    - target: {fileID: 1412761057610343882, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: InitialParent
+      value: 
+      objectReference: {fileID: 1907707817}
+    - target: {fileID: 1412761057610343882, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: IsShowCasWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412761057610343882, guid: 793063096e4669b41b4519e1cbcea80b,
+        type: 3}
+      propertyPath: IsShowCaseWeapon
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3015306858484453704, guid: 793063096e4669b41b4519e1cbcea80b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -18,6 +18,8 @@ MonoBehaviour:
   BulletObj: {fileID: 6834491874949628638, guid: 050df705b6241384e9b70bdd42429108,
     type: 3}
   Damage: 2
-  FireCooldown: 0.15
+  FireCooldown: 0.25
   AmmunitionAmount: 8
+  CurrentAmmunition: 8
   TimeToReload: 1
+  BulletSprite: {fileID: 21300000, guid: 12e2d1f5adc407748a1d4591458e9317, type: 3}

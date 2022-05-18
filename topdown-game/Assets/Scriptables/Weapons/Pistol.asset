@@ -21,3 +21,4 @@ MonoBehaviour:
   FireCooldown: 0.2
   AmmunitionAmount: 5
   TimeToReload: 0.5
+  BulletSprite: {fileID: 21300000, guid: ea3262f8ba2cb334fbaf4b89b36d8775, type: 3}

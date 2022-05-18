@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using topdownGame.Bullets;
@@ -8,8 +9,13 @@ namespace topdownGame.Weapons.Shotgum {
 
     public class Shotgun : Weapon {
         public List<Transform> SpawnsTransforns;
-        private int m_currentAmmunition;
         
+        private void Awake() {
+            if (!IsShowCaseWeapon) return;
+            
+            InitialPosition = transform.localPosition;
+        }
+
         public override void Shoot(LayerMask ownerLayer) {
             foreach (var spawn in SpawnsTransforns) {
                 var tempBullet = Instantiate(WeaponsData.BulletObj, spawn.position, Quaternion.identity);
@@ -17,7 +23,7 @@ namespace topdownGame.Weapons.Shotgum {
                 tempBullet.transform.right = spawn.right;
             }
 
-            m_currentAmmunition -= 1;
+            WeaponsData.CurrentAmmunition -= 1;
         }
 
         public override void Especial()
@@ -26,11 +32,11 @@ namespace topdownGame.Weapons.Shotgum {
         }
 
         public override void Reload() {
-            m_currentAmmunition = WeaponsData.AmmunitionAmount;
+            WeaponsData.CurrentAmmunition = WeaponsData.AmmunitionAmount;
         }
 
         public override bool CanShoot() {
-            return m_currentAmmunition > 0;
+            return WeaponsData.CurrentAmmunition > 0;
         }
         
         public override void ActivateTriggerCollider() {
@@ -39,6 +45,12 @@ namespace topdownGame.Weapons.Shotgum {
 
         public override void DeactivateTriggerCollider() {
             TriggerCollider.enabled = false;
+        }
+
+        public override void Unequip() {
+            transform.SetParent(InitialParent);
+            transform.localPosition = InitialPosition;
+            transform.localRotation = Quaternion.Euler(0,0,0);
         }
     }
 }

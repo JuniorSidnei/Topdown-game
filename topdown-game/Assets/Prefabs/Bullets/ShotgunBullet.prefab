@@ -106,7 +106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2129984
   WeaponsData: {fileID: 11400000, guid: 1a9bc18e8c96fc9418787633271e1ab8, type: 2}
-  Speed: 18
+  Speed: 10
   m_collisionProxy: {fileID: 5010759155291967455}
 --- !u!61 &1576885105434506720
 BoxCollider2D:

@@ -747,6 +747,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerCollider: {fileID: 1178266095}
   WeaponsData: {fileID: 11400000, guid: 1a9bc18e8c96fc9418787633271e1ab8, type: 2}
+  InitialParent: {fileID: 0}
+  InitialPosition: {x: 13.28, y: -0.5, z: 0}
+  IsShowCaseWeapon: 0
   SpawnsTransforns:
   - {fileID: 4013000606412590269}
   - {fileID: 7540793702314373154}

@@ -11,17 +11,18 @@ namespace topdownGame.Weapons.Pistol {
     public class Pistol : Weapon {
         
         public Transform SpawnTransform;
-        private int m_currentAmmunition;
         
-        public WeaponsData GetData() {
-            return WeaponsData;
+        private void Awake() {
+            if (!IsShowCaseWeapon) return;
+            
+            InitialPosition = transform.localPosition;
         }
-
+        
         public override void Shoot(LayerMask ownerLayer) {
             var tempBullet = Instantiate(WeaponsData.BulletObj, SpawnTransform.position, Quaternion.identity);
             tempBullet.GetComponent<SimpleBullet>().SetOwnerLayer(ownerLayer);
             tempBullet.transform.right = transform.right;
-            m_currentAmmunition -= 1;
+            WeaponsData.CurrentAmmunition -= 1;
         }
 
         public override void Especial()
@@ -30,11 +31,11 @@ namespace topdownGame.Weapons.Pistol {
         }
 
         public override void Reload() {
-            m_currentAmmunition = WeaponsData.AmmunitionAmount;
+            WeaponsData.CurrentAmmunition = WeaponsData.AmmunitionAmount;
         }
 
         public override bool CanShoot() {
-            return m_currentAmmunition > 0;
+            return WeaponsData.CurrentAmmunition > 0;
         }
 
         public override void ActivateTriggerCollider() {
@@ -43,6 +44,12 @@ namespace topdownGame.Weapons.Pistol {
 
         public override void DeactivateTriggerCollider() {
             TriggerCollider.enabled = false;
+        }
+        
+        public override void Unequip() {
+            transform.SetParent(InitialParent);
+            transform.localPosition = InitialPosition;
+            transform.localRotation = Quaternion.Euler(0,0,0);
         }
     }
 }

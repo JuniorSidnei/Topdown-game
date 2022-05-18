@@ -25,7 +25,7 @@ namespace topdownGame.Bullets {
         private void Awake() {
             m_controller = GetComponent<Controller2D>();
             m_collisionProxy.OnTrigger2DEnterCallback.AddListener(OnTrigger2DEnterCallback);
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 1f);
         }
 
         private void OnTrigger2DEnterCallback(Collider2D ev) {

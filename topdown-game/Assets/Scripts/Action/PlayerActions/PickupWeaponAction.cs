@@ -25,7 +25,7 @@ namespace topdownGame.Actions.Pickable {
             m_currentWeapon = weapon;
             var weaponTransform = m_currentWeapon.transform;
             weaponTransform.SetParent(WeaponParent);
-            weaponTransform.DOLocalMove(Vector3.zero, 0.5f);
+            weaponTransform.DOLocalMove(Vector3.zero, 0.1f);
             weaponTransform.localRotation = Quaternion.identity;
             var aim = m_currentWeapon.GetComponent<AimAction>();
             aim.Show(true);
@@ -36,10 +36,6 @@ namespace topdownGame.Actions.Pickable {
         public void DropWeapon() {
             if (!m_currentWeapon) return;
             
-            var weaponTransform = m_currentWeapon.transform;
-            weaponTransform.SetParent(null);
-            weaponTransform.localPosition = transform.position;
-            weaponTransform.localRotation = Quaternion.Euler(0,0,0);
             CurrentWeaponType = WeaponsData.WeaponTypeData.None;
             var aim = m_currentWeapon.GetComponent<AimAction>();
             aim.Show(false);

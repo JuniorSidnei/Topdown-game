@@ -17,6 +17,8 @@ namespace topdownGame.Weapons.Info {
         public int Damage;
         public float FireCooldown;
         public int AmmunitionAmount;
+        public int CurrentAmmunition;
         public float TimeToReload;
+        public Sprite BulletSprite;
     }
 }
